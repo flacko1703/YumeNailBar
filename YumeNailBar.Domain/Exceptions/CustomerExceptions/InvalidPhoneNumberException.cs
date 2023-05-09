@@ -2,9 +2,9 @@
 
 namespace YumeNailBar.Domain.Exceptions.CustomerExceptions;
 
-public class InvalidPhoneNumberDomainException : CustomerDomainExceptionBase
+public class InvalidPhoneNumberException : YumeNailBarDomainException
 {
-    public InvalidPhoneNumberDomainException() 
+    public InvalidPhoneNumberException() 
         : base("Phone Number is invalid")
     {
     }

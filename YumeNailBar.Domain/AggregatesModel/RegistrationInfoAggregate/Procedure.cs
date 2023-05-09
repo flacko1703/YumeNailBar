@@ -1,6 +1,6 @@
 ﻿using YumeNailBar.Domain.Exceptions.ProcedureExceptions;
 
-namespace YumeNailBar.Domain.AggregatesModel.CustomerAggregate;
+namespace YumeNailBar.Domain.AggregatesModel.RegistrationInfoAggregate;
 
 public record Procedure
 {

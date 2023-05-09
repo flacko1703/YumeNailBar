@@ -1,8 +1,8 @@
 ﻿namespace YumeNailBar.Domain.SeedWork;
 
-public class YumeNailBarException : Exception
+public class YumeNailBarDomainException : Exception
 {
-    protected YumeNailBarException(string message) : base(message)
+    protected YumeNailBarDomainException(string message) : base(message)
     {
         
     }

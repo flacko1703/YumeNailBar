@@ -3,27 +3,32 @@ using YumeNailBar.Domain.Exceptions.ProcedureExceptions;
 using YumeNailBar.Domain.SeedWork.Abstractions;
 using YumeNailBar.Domain.SeedWork.ValueObjects;
 
-namespace YumeNailBar.Domain.AggregatesModel.CustomerAggregate;
+namespace YumeNailBar.Domain.AggregatesModel.RegistrationInfoAggregate;
 
-public record RegistrationInfo : AggregateRoot<RegistrationId>
+public record Registration : AggregateRoot<RegistrationId>
 {
     private Client _client;
-    private RegistrationDate _registrationDate;
+    private AppointmentDate _appointmentDate;
     private string? _comment;
     private bool _isCanceled;
 
-    private RegistrationInfo(RegistrationId id, Client client, RegistrationDate registrationDate, bool isCanceled = false)
+    internal Registration(RegistrationId id, Client client, AppointmentDate appointmentDate, bool isCanceled = false)
     {
         Id = id;
         _client = client;
-        _registrationDate = registrationDate;
+        _appointmentDate = appointmentDate;
         _isCanceled = isCanceled;
     }
     public RegistrationId Id { get; init; }
 
-    internal static RegistrationInfo CreateInstance(RegistrationId id, Client client, RegistrationDate registrationDate, bool isCanceled = false)
+    public static Registration CreateInstance(RegistrationId id, Client client, AppointmentDate appointmentDate, bool isCanceled = false)
     {
-        return new RegistrationInfo(id, client, registrationDate, isCanceled);
+        return new Registration(id, client, appointmentDate, isCanceled);
+    }
+
+    public Registration()
+    {
+        
     }
 
 
@@ -50,7 +55,7 @@ public record RegistrationInfo : AggregateRoot<RegistrationId>
         }
 
         procedures?.AddLast(procedure);
-        AddEvent(new ProcedureAdded(this, procedure));
+        AddEvent(new ProcedureAddedDomainEvent(this, procedure));
 
         return procedures;
     }

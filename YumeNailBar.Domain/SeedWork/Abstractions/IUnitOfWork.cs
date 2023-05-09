@@ -1,4 +1,4 @@
-﻿namespace YumeNailBar.Domain.SeedWork;
+﻿namespace YumeNailBar.Domain.SeedWork.Abstractions;
 
 public interface IUnitOfWork : IDisposable
 {

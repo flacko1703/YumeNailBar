@@ -1,6 +1,6 @@
 ﻿using YumeNailBar.Domain.Exceptions.CustomerExceptions;
 
-namespace YumeNailBar.Domain.AggregatesModel.CustomerAggregate;
+namespace YumeNailBar.Domain.AggregatesModel.RegistrationInfoAggregate;
 
 public record RegistrationId
 {

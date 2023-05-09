@@ -2,9 +2,9 @@
 
 namespace YumeNailBar.Domain.Exceptions.ProcedureExceptions;
 
-public class ProcedureDomainEmptyPriceException : YumeNailBarDomainException
+public class ProcedureEmptyPriceException : YumeNailBarDomainException
 {
-    public ProcedureDomainEmptyPriceException() 
+    public ProcedureEmptyPriceException() 
         : base("Procedure price cannot be empty")
     {
     }

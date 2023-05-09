@@ -2,11 +2,11 @@
 
 namespace YumeNailBar.Domain.SeedWork.ValueObjects;
 
-public abstract record Name
+public abstract record ClientName
 {
     public string Value { get; }
 
-    public Name(string value)
+    public ClientName(string value)
     {
         if (string.IsNullOrWhiteSpace(value))
         {

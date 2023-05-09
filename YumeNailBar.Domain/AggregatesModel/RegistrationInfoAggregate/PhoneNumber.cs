@@ -1,13 +1,14 @@
 ﻿using System.Text.RegularExpressions;
 using YumeNailBar.Domain.Exceptions.CustomerExceptions;
 
-namespace YumeNailBar.Domain.AggregatesModel.CustomerAggregate;
+namespace YumeNailBar.Domain.AggregatesModel.RegistrationInfoAggregate;
 
-public partial record PhoneNumber
+public record PhoneNumber
 {
+    private Regex _phoneNumberRegex = new Regex("^\\+?[1-9][0-9]{7,14}$");
     public PhoneNumber(string value)
     {
-        if (!PhoneNumberValidationRegex().IsMatch(value))
+        if (!_phoneNumberRegex.IsMatch(value))
         {
             throw new InvalidPhoneNumberException();
         }
@@ -16,10 +17,4 @@ public partial record PhoneNumber
     }
 
     public string Value { get; }
-
-    /// <summary>
-    /// Regex для валидации номера телефона
-    /// </summary>
-    [GeneratedRegex("^\\+?[1-9][0-9]{7,14}$")]
-    private static partial Regex PhoneNumberValidationRegex();
 }

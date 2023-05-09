@@ -1,6 +1,8 @@
-﻿namespace YumeNailBar.Domain.SeedWork.Abstractions;
+﻿using MediatR;
 
-public interface IDomainEvent
+namespace YumeNailBar.Domain.SeedWork.Abstractions;
+
+public interface IDomainEvent : INotification
 {
     
 }

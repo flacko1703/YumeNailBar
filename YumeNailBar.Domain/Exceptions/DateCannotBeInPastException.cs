@@ -1,6 +1,11 @@
-﻿namespace YumeNailBar.Domain.Exceptions;
+﻿using YumeNailBar.Domain.SeedWork;
 
-public class DateCannotBeInPastException
+namespace YumeNailBar.Domain.Exceptions;
+
+public class DateCannotBeInPastException : YumeNailBarDomainException
 {
-    
+    public DateCannotBeInPastException(DateTime dateTime) 
+        : base($"Date cannot be in past. Current value: {dateTime}")
+    {
+    }
 }

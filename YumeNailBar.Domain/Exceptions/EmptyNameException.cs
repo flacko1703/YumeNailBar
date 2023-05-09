@@ -1,5 +1,11 @@
-﻿namespace YumeNailBar.Domain.SeedWork.ValueObjects;
+﻿using YumeNailBar.Domain.SeedWork;
 
-public class EmptyNameException : Exception
+namespace YumeNailBar.Domain.Exceptions;
+
+public class EmptyNameException : YumeNailBarDomainException
 {
+    public EmptyNameException() 
+        : base("Name cannot be empty")
+    {
+    }
 }

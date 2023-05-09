@@ -1,4 +1,4 @@
-﻿namespace YumeNailBar.Domain.AggregatesModel.CustomerAggregate;
+﻿namespace YumeNailBar.Domain.AggregatesModel.RegistrationInfoAggregate;
 
 public enum ProcedureKind
 {

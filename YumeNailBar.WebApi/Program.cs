@@ -1,3 +1,8 @@
+using YumeNailBar.Application;
+using YumeNailBar.Infrastructure;
+using YumeNailBar.Presentation;
+using Serilog;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,7 +12,30 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//Layers registration
+builder.Services.AddPresentationLayer()
+    .AddInfrastructureLayer()
+    .AddApplicationLayer();
+
+//Add Serilog
+builder.Services.AddLogging(loggingBuilder =>
+{
+    loggingBuilder.ClearProviders();
+});
+
+Log.Logger = new LoggerConfiguration()
+
+    // Add console (Sink) as logging target
+    .WriteTo.Console()
+
+    // Set default minimum log level
+    .MinimumLevel.Debug()
+
+    // Create the actual logger
+    .CreateLogger();
+
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

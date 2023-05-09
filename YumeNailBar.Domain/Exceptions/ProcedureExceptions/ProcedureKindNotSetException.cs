@@ -2,10 +2,10 @@
 
 namespace YumeNailBar.Domain.Exceptions.ProcedureExceptions;
 
-public class ProcedureDomainKindNotSetException : YumeNailBarDomainException
+public class ProcedureKindNotSetException : YumeNailBarDomainException
 {
-    public ProcedureDomainKindNotSetException() 
-        : base("Procedure Kind must be set")
+    public ProcedureKindNotSetException() 
+        : base("Procedure kind must be set")
     {
     }
 }

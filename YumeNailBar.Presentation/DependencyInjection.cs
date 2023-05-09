@@ -1,11 +1,10 @@
-﻿using FluentValidation;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace YumeNailBar.Infrastructure;
+namespace YumeNailBar.Presentation;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddInfrastructureLayer(this IServiceCollection services)
+    public static IServiceCollection AddPresentationLayer(this IServiceCollection services)
     {
         return services;
     }

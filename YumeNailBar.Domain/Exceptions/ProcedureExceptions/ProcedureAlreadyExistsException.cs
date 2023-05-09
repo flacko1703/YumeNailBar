@@ -1,7 +1,7 @@
-﻿using YumeNailBar.Domain.AggregatesModel.ProcedureAggregate;
+﻿using YumeNailBar.Domain.AggregatesModel.RegistrationInfoAggregate;
 using YumeNailBar.Domain.SeedWork;
 
-namespace YumeNailBar.Domain.AggregatesModel.CustomerAggregate;
+namespace YumeNailBar.Domain.Exceptions.ProcedureExceptions;
 
 public class ProcedureAlreadyExistsException : YumeNailBarDomainException
 {

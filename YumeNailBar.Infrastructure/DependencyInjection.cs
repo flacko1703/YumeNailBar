@@ -1,16 +1,12 @@
 ﻿using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace YumeNailBar.Application;
+namespace YumeNailBar.Infrastructure;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddApplicationLayer(this IServiceCollection services)
+    public static IServiceCollection AddInfrastructureLayer(this IServiceCollection services)
     {
-        var assembly = typeof(DependencyInjection).Assembly;
-        services.AddMediatR(configuration =>
-            configuration.RegisterServicesFromAssembly(assembly));
-        services.AddValidatorsFromAssembly(assembly);
         return services;
     }
 }
