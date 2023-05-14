@@ -16,5 +16,10 @@ public record PhoneNumber
         Value = value;
     }
 
-    public string Value { get; }
+    public string Value { get; init; }
+    
+    
+    public static implicit operator string(PhoneNumber phoneNumber) => phoneNumber.Value;
+
+    public static implicit operator PhoneNumber(string phoneNumber) => new(phoneNumber);
 }

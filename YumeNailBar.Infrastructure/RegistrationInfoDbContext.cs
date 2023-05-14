@@ -5,7 +5,7 @@ using YumeNailBar.Infrastructure.EntityTypeConfiguration;
 
 namespace YumeNailBar.Infrastructure;
 
-public class RegistrationInfoDbContext : DbContext, IRegistrationInfoDbContext
+public class RegistrationInfoDbContext : DbContext
 {
     public DbSet<Registration> RegistrationInfo { get; set; }
 

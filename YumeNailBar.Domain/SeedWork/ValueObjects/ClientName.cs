@@ -2,9 +2,9 @@
 
 namespace YumeNailBar.Domain.SeedWork.ValueObjects;
 
-public abstract record ClientName
+public record ClientName
 {
-    public string Value { get; }
+    public string Value { get; private set; }
 
     public ClientName(string value)
     {
@@ -15,4 +15,8 @@ public abstract record ClientName
 
         Value = value;
     }
+    
+    public static implicit operator string(ClientName name) => name.Value;
+
+    public static implicit operator ClientName(string name) => new(name);
 }

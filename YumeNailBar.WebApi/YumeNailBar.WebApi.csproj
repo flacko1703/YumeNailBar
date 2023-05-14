@@ -5,9 +5,11 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <UserSecretsId>659dd08c-5a57-463d-9d4f-7c3fd397d575</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="MediatR" Version="12.0.1" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.5" />
         <PackageReference Include="Serilog" Version="2.12.0" />
         <PackageReference Include="Serilog.AspNetCore" Version="6.1.0" />
@@ -23,7 +25,6 @@
     <ItemGroup>
       <ProjectReference Include="..\YumeNailBar.Application\YumeNailBar.Application.csproj" />
       <ProjectReference Include="..\YumeNailBar.Infrastructure\YumeNailBar.Infrastructure.csproj" />
-      <ProjectReference Include="..\YumeNailBar.Presentation\YumeNailBar.Presentation.csproj" />
     </ItemGroup>
 
 </Project>

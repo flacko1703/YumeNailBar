@@ -17,6 +17,11 @@ public class Client
         _comment = comment;
     }
 
+    public Client()
+    {
+        
+    }
+
     public static Client CreateInstance(ClientName clientName, PhoneNumber phoneNumber,
         LinkedList<Procedure> procedures, string comment)
     {

@@ -1,8 +1,10 @@
-﻿using YumeNailBar.Domain.AggregatesModel.RegistrationInfoAggregate;
+﻿using FluentResults;
+using YumeNailBar.Domain.AggregatesModel.RegistrationInfoAggregate;
+using MediatR;
 
 namespace YumeNailBar.Application.Services;
 
 public interface IRegistrationSearchService
 {
-    Task<bool> SearchByPhoneNumber(PhoneNumber phoneNumber);
+    Task<Client>? SearchByPhoneNumber(PhoneNumber phoneNumber);
 }

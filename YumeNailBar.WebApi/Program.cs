@@ -1,21 +1,34 @@
+using System.Reflection;
 using YumeNailBar.Application;
 using YumeNailBar.Infrastructure;
-using YumeNailBar.Presentation;
 using Serilog;
+using YumeNailBar.Domain;
+using YumeNailBar.Domain.Factories;
+using YumeNailBar.Domain.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+//Layers registration
+
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+
+
+
+var assemblies = AppDomain.CurrentDomain.GetAssemblies();
+        
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(assemblies));
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//Layers registration
-builder.Services.AddPresentationLayer()
-    .AddInfrastructureLayer()
-    .AddApplicationLayer();
+builder.Services.AddSingleton<IClientFactory, ClientFactory>();
+
+
+    
 
 //Add Serilog
 builder.Services.AddLogging(loggingBuilder =>

@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using FluentResults;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using YumeNailBar.Application.Abstractions;
 using YumeNailBar.Application.Exceptions;
@@ -7,7 +8,7 @@ using YumeNailBar.Domain.Repositories;
 
 namespace YumeNailBar.Application.RegistrationInfo.Commands.CancelRegistrationCommand;
 
-public class CancelRegistrationCommandHandler : IRequestHandler<CancelRegistrationCommand>
+public class CancelRegistrationCommandHandler : IRequestHandler<CancelRegistrationCommand, Result>
 {
     private readonly IRegistrationRepository _repository;
 
@@ -16,7 +17,7 @@ public class CancelRegistrationCommandHandler : IRequestHandler<CancelRegistrati
         _repository = repository;
     }
 
-    public async Task Handle(CancelRegistrationCommand request, CancellationToken cancellationToken)
+    public async Task<Result> Handle(CancelRegistrationCommand request, CancellationToken cancellationToken)
     {
         var entity = await _repository.GetAsync(request.Id);
 
@@ -26,5 +27,7 @@ public class CancelRegistrationCommandHandler : IRequestHandler<CancelRegistrati
         }
 
         await _repository.DeleteAsync(entity);
+        
+        return Result.Ok();
     }
 }
