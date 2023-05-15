@@ -1,11 +1,12 @@
 ﻿using FluentResults;
 using MediatR;
 using YumeNailBar.Application.Abstractions;
+using YumeNailBar.Application.DTO;
 using YumeNailBar.Domain.Repositories;
 
 namespace YumeNailBar.Application.RegistrationInfo.Queries.GetRegistrationById;
 
-public class GetRegistrationByIdQueryHandler : IRequestHandler<GetRegistrationByIdQuery, Result<RegistrationResponse>>
+public class GetRegistrationByIdQueryHandler : IRequestHandler<GetRegistrationByIdQuery, Result<RegistrationDto>>
 {
     private readonly IRegistrationRepository _registrationRepository;
 
@@ -14,16 +15,16 @@ public class GetRegistrationByIdQueryHandler : IRequestHandler<GetRegistrationBy
         _registrationRepository = registrationRepository;
     }
 
-    public async Task<Result<RegistrationResponse>> Handle(GetRegistrationByIdQuery request, CancellationToken cancellationToken)
+    public async Task<Result<RegistrationDto>> Handle(GetRegistrationByIdQuery request, CancellationToken cancellationToken)
     {
         var registration = await _registrationRepository.GetAsync(request.Id);
 
         if (registration is null)
         {
-            return Result.Fail<RegistrationResponse>(new Error($"Registraton with {request.Id} was not found"));
+            return Result.Fail<RegistrationDto>(new Error($"Registraton with {request.Id} was not found"));
         }
 
-        var response = new RegistrationResponse(request.Id);
+        var response = new RegistrationDto(request.Id, request.Client, request.AppointmentDate, request.IsCanceled);
 
         return response;
     }

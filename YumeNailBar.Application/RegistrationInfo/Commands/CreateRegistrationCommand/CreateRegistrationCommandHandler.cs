@@ -4,6 +4,7 @@ using YumeNailBar.Application.Abstractions;
 using YumeNailBar.Application.Services;
 using YumeNailBar.Domain.Factories;
 using YumeNailBar.Domain.Repositories;
+using YumeNailBar.Domain.SeedWork.ValueObjects;
 
 namespace YumeNailBar.Application.RegistrationInfo.Commands.CreateRegistrationCommand;
 

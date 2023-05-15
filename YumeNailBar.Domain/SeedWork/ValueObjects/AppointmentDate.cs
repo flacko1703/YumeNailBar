@@ -18,5 +18,10 @@ public record AppointmentDate
 
         Value = value;
     }
-    public DateTime Value;
+    public DateTime Value { get; init; }
+
+    public static implicit operator DateTime(AppointmentDate date) => date.Value;
+    public static implicit operator AppointmentDate(DateTime date) => new(date);
+    
+    
 }

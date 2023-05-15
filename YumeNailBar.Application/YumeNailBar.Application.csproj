@@ -19,4 +19,8 @@
       <ProjectReference Include="..\YumeNailBar.Domain\YumeNailBar.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Extensions\" />
+    </ItemGroup>
+
 </Project>

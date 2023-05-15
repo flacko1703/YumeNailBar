@@ -1,6 +1,10 @@
 using System.Text.Json;
+using FluentResults;
+using MediatR;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using YumeNailBar.Application.DTO;
+using YumeNailBar.Application.RegistrationInfo.Commands.CreateClientCommand;
 using YumeNailBar.Application.RegistrationInfo.Commands.CreateRegistrationCommand;
 using YumeNailBar.Domain.AggregatesModel.RegistrationInfoAggregate;
 using YumeNailBar.Domain.Factories;
@@ -14,27 +18,26 @@ namespace YumeNailBar.WebApi.Controllers;
 public class ClientController : ControllerBase
 {
     private readonly IClientFactory _clientFactory;
+    private readonly IMediator _mediator;
 
-    public ClientController(IClientFactory clientFactory)
+    public ClientController(IClientFactory clientFactory, IMediator mediator)
     {
         _clientFactory = clientFactory;
+        _mediator = mediator;
     }
 
     [HttpGet]
-    public IActionResult Get()
+    public Task<Result> Get()
     {
-        Client client = _clientFactory.Create("TEST", "987987987987");
-
-        ClientWriteModel writeModel = new("TEST", "987987987987", null, "false");
-        var json = JsonSerializer.Serialize(writeModel);
-        return Ok(json);
+        var result = _mediator.Send(new CreateClientCommand("TEST", "89999809351"));
+        return result.ToResult().Value;
     }
     
     [HttpPost]
-    public async Task<IActionResult> Post([FromBody] ClientWriteModel client)
+    public async Task<IActionResult> Post([FromBody] ClientDto client)
     {
-        ClientWriteModel writeModel = new("TEST", "987987987987", null, "false");
-        var json = JsonSerializer.Serialize(writeModel);
+        ClientDto clientDto = new("TEST", "987987987987", null, "COMMENT");
+        var json = JsonSerializer.Serialize(clientDto);
         return Ok(json);
     }
     

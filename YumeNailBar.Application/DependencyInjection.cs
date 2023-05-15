@@ -3,6 +3,7 @@ using FluentResults;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using YumeNailBar.Application.Abstractions;
+using YumeNailBar.Application.RegistrationInfo.Commands.CreateClientCommand;
 using YumeNailBar.Application.Services;
 using YumeNailBar.Domain.Repositories;
 
@@ -14,6 +15,7 @@ public static class DependencyInjection
     {
         services.AddSingleton<IRegistrationRepository>();
         services.AddSingleton<IClientRepository>();
+        services.AddSingleton<IRequestHandler<CreateClientCommand, Result>, CreateClientCommandHandler>();
         services.AddScoped<IRegistrationSearchService, RegistrationSearchService>();
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<ApplicationAssemblyReference>());
         return services;

@@ -9,6 +9,6 @@ public class CreateRegistrationCommandValidator : AbstractValidator<CreateRegist
         RuleFor(x => x.Client).NotNull();
         RuleFor(x => x.Client.PhoneNumber).NotEmpty();
         RuleFor(x => x.Client.ClientName).NotEmpty();
-        RuleFor(x => x.AppointmentDate.Value).NotNull();
+        RuleFor(x => x.AppointmentDate).NotNull();
     }
 }
