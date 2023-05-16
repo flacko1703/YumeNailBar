@@ -1,5 +1,5 @@
 ﻿using FluentResults;
-using YumeNailBar.Domain.AggregatesModel.RegistrationInfoAggregate;
+using YumeNailBar.Domain.AggregatesModel.RegistrationAggregate;
 using YumeNailBar.Domain.Repositories;
 
 namespace YumeNailBar.Application.Services;

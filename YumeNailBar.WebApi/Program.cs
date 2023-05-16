@@ -3,25 +3,23 @@ using FluentResults;
 using MediatR;
 using Serilog;
 using YumeNailBar.Application;
-using YumeNailBar.Application.RegistrationInfo.Commands.CreateClientCommand;
-using YumeNailBar.Domain.Factories;
+using YumeNailBar.Application.Registration.Commands.CreateClientCommand;
+using YumeNailBar.Domain;
+using YumeNailBar.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 //Layers registration
 
-builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
-
-builder.Services.AddSingleton<IRequestHandler<CreateClientCommand, Result>, CreateClientCommandHandler>();
-
-var assemblies = AppDomain.CurrentDomain.GetAssemblies();
-        
-builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<ApplicationAssemblyReference>());
+builder.Services
+    .AddDomainLayer()
+    .AddApplicationLayer()
+    .AddInfrastructureLayer(builder.Configuration);
 
 
 
-builder.Services.AddApplicationLayer();
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

@@ -1,15 +1,11 @@
 using System.Text.Json;
 using FluentResults;
 using MediatR;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using YumeNailBar.Application.DTO;
-using YumeNailBar.Application.RegistrationInfo.Commands.CreateClientCommand;
-using YumeNailBar.Application.RegistrationInfo.Commands.CreateRegistrationCommand;
-using YumeNailBar.Domain.AggregatesModel.RegistrationInfoAggregate;
+using YumeNailBar.Application.Registration.Commands.CreateClientCommand;
+using YumeNailBar.Application.Registration.Queries.GetRegistrationById;
 using YumeNailBar.Domain.Factories;
-using YumeNailBar.Domain.Repositories;
-using YumeNailBar.Domain.SeedWork.ValueObjects;
 
 namespace YumeNailBar.WebApi.Controllers;
 
@@ -27,17 +23,16 @@ public class ClientController : ControllerBase
     }
 
     [HttpGet]
-    public Task<Result> Get()
+    public async Task<IActionResult> Get(Guid Id)
     {
-        var result = _mediator.Send(new CreateClientCommand("TEST", "89999809351"));
-        return result.ToResult().Value;
+        var result = await _mediator.Send(new GetRegistrationByIdQuery(Id));
+        return Ok(result);
     }
     
     [HttpPost]
-    public async Task<IActionResult> Post([FromBody] ClientDto client)
+    public async Task<IActionResult> Post([FromBody] RegistrationDto registration)
     {
-        ClientDto clientDto = new("TEST", "987987987987", null, "COMMENT");
-        var json = JsonSerializer.Serialize(clientDto);
+        var json = JsonSerializer.Serialize(registration);
         return Ok(json);
     }
     

@@ -1,4 +1,4 @@
-﻿using YumeNailBar.Domain.AggregatesModel.RegistrationInfoAggregate;
+﻿using YumeNailBar.Domain.AggregatesModel.RegistrationAggregate;
 using YumeNailBar.Domain.SeedWork;
 
 namespace YumeNailBar.Domain.Exceptions.ProcedureExceptions;

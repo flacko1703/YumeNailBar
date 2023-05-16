@@ -1,6 +1,4 @@
-﻿using FluentResults;
-using YumeNailBar.Domain.AggregatesModel.RegistrationInfoAggregate;
-using MediatR;
+﻿using YumeNailBar.Domain.AggregatesModel.RegistrationAggregate;
 
 namespace YumeNailBar.Application.Services;
 

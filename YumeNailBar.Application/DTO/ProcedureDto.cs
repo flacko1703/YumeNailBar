@@ -1,5 +1,5 @@
 ﻿using YumeNailBar.Application.Common.Mappings;
-using YumeNailBar.Domain.AggregatesModel.RegistrationInfoAggregate;
+using YumeNailBar.Domain.AggregatesModel.RegistrationAggregate;
 
 namespace YumeNailBar.Application.DTO;
 
