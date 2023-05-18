@@ -1,10 +1,10 @@
-﻿using YumeNailBar.Domain.AggregateModels.RegistrationAggregate.ValueObjects;
+﻿using YumeNailBar.Domain.Abstractions;
+using YumeNailBar.Domain.AggregateModels.RegistrationAggregate.ValueObjects;
 
 namespace YumeNailBar.Domain.AggregateModels.RegistrationAggregate.Entities;
 
-public class Customer
+public class Customer : IEntity<CustomerId>
 {
-    private CustomerId _customerId;
     private CustomerName _customerName;
     private PhoneNumber _phoneNumber;
     private Email? _email;
@@ -21,6 +21,11 @@ public class Customer
     {
         //For Entity Framework
     }
+    
+    public CustomerId Id { get; init; }
+    public CustomerName CustomerName => _customerName;
+    public PhoneNumber PhoneNumber => _phoneNumber;
+    public Email? Email => _email;
 
     public static Customer Create(string value)
     {
@@ -46,4 +51,6 @@ public class Customer
     {
         return $"{_customerName}, {_phoneNumber}";
     }
+
+    
 }

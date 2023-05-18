@@ -6,7 +6,7 @@ public record CustomerId
 {
     public CustomerId(Guid value)
     {
-        if (Value == Guid.Empty)
+        if (value == Guid.Empty)
         {
             throw new NullCustomerIdExceptionBase();
         }

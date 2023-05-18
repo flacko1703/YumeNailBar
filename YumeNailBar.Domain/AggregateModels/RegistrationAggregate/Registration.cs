@@ -31,6 +31,15 @@ public record Registration : AggregateRoot<RegistrationId>
     }
     
     public RegistrationId Id { get; init; }
+    public CustomerId CustomerId => _customerId;
+
+    public IEnumerable<Procedure> Procedures => _procedures;
+
+    public AppointmentDate AppointmentDate => _appointmentDate;
+
+    public string? Comment => _comment;
+
+    public bool IsCanceled => _isCanceled;
 
     public static Registration Create(RegistrationId id, 
         CustomerId customerId, 
@@ -55,6 +64,8 @@ public record Registration : AggregateRoot<RegistrationId>
 
         return _procedures;
     }
+    
+    
 
     public IEnumerable<Procedure>? GetProcedures()
     {

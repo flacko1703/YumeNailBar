@@ -1,10 +1,10 @@
 ﻿namespace YumeNailBar.Domain.Abstractions;
 
-public abstract record AggregateRoot<T> : IDomainEvent
+public abstract record AggregateRoot<T> : Entity<T>, IDomainEvent
 {
     private readonly List<IDomainEvent> _domainEvents = new();
 
-    T Id { get; init; }
+    public T Id { get; init; }
 
     public IEnumerable<IDomainEvent> DomainEvents => _domainEvents;
 
@@ -14,6 +14,11 @@ public abstract record AggregateRoot<T> : IDomainEvent
         {
             _domainEvents.Add(@event);
         }
+    }
+
+    public IEnumerable<IDomainEvent> GetDomainEvents()
+    {
+        return _domainEvents;
     }
 
     public void ClearEvents()

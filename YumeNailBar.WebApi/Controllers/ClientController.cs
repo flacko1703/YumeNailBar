@@ -34,8 +34,10 @@ public class ClientController : ControllerBase
     {
         var json = await _mediator
             .Send(new CreateRegistrationCommand(registration.Id,
-            registration.ClientId,
+            registration.CustomerId,
             registration.AppointmentDate,
+            registration.CustomerName,
+            registration.PhoneNumber,
             registration.Procedures,
             registration.Comment,
             registration.IsCanceled));

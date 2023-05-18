@@ -30,7 +30,7 @@ public class CreateRegistrationCommandHandler : IRequestHandler<CreateRegistrati
     {
         //RegistrationDTO
         var (id, customerId, 
-            registrationDate, procedureDtos, 
+            registrationDate, customerName, phoneNumber, procedureDtos,
             comment, isCanceled) = request;
         
         HashSet<Procedure> procedures = new HashSet<Procedure>();
@@ -43,8 +43,11 @@ public class CreateRegistrationCommandHandler : IRequestHandler<CreateRegistrati
             }
         }
         
-        var registration = _registrationFactory.Create(id, customerId, registrationDate, procedures, comment, isCanceled);
+        var registration = _registrationFactory.Create(id, customerId, 
+            registrationDate, customerName, phoneNumber, 
+            procedures, comment, isCanceled);
 
+        
         await _registrationRepository.AddAsync(registration);
 
         await _unitOfWork.SaveChangesAsync(cancellationToken);

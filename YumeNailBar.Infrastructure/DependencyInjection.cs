@@ -12,7 +12,7 @@ public static class DependencyInjection
     {
         services.AddScoped<IRegistrationRepository, RegistrationRepository>();
         services.AddScoped<ICustomerRepository, CustomerRepository>();
-        services.AddMsSqlServer(configuration);
+        services.AddPersistence(configuration);
         return services;
     }
 }

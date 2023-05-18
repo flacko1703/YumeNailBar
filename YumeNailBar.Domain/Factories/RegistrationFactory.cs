@@ -9,6 +9,8 @@ public class RegistrationFactory : IRegistrationFactory
     public Registration Create(RegistrationId id, 
         CustomerId customerId, 
         AppointmentDate appointmentDate,
+        CustomerName customerName,
+        PhoneNumber phoneNumber,
         IEnumerable<Procedure> procedures,
         string? comment, 
         bool isCanceled = false) 

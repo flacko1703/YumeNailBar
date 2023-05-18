@@ -7,7 +7,7 @@ public class CreateRegistrationCommandValidator : AbstractValidator<CreateRegist
     public CreateRegistrationCommandValidator()
     {
         RuleFor(x => x.Id).NotNull();
-        RuleFor(x => x.ClientId).NotNull();
+        RuleFor(x => x.CustomerId).NotNull();
         RuleFor(x => x.AppointmentDate).NotNull();
     }
 }

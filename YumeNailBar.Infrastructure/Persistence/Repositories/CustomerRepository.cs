@@ -2,31 +2,30 @@
 using YumeNailBar.Domain.AggregateModels.RegistrationAggregate.Entities;
 using YumeNailBar.Domain.AggregateModels.RegistrationAggregate.ValueObjects;
 using YumeNailBar.Domain.Repositories;
-using YumeNailBar.Infrastructure.Persistence.EF.Contexts;
+using YumeNailBar.Infrastructure.Persistence.EF.Contexts.ApplicationContext;
 
 namespace YumeNailBar.Infrastructure.Persistence.Repositories;
 
 internal class CustomerRepository : ICustomerRepository
 {
-    private readonly ReadDbContext _readDbContext;
-    private readonly WriteDbContext _writeDbContext;
+    private readonly IApplicationDbContext _dbContext;
 
-    public CustomerRepository(ReadDbContext readDbContext, WriteDbContext writeDbContext)
+    public CustomerRepository(IApplicationDbContext dbContext)
     {
-        _readDbContext = readDbContext;
-        _writeDbContext = writeDbContext;
+        _dbContext = dbContext;
     }
+
 
     public async Task<Customer> GetAsync(PhoneNumber phoneNumber)
     {
-        var result = await _readDbContext.Set<Customer>()
+        var result = await _dbContext.Customers
             .FirstOrDefaultAsync(c => c.GetPhoneNumber() == phoneNumber);
         return result;
     }
 
     public async Task AddAsync(Customer customer)
     {
-        await _writeDbContext.Set<Customer>().AddAsync(customer);
+        await _dbContext.Customers.AddAsync(customer);
     }
 
     public async Task UpdateAsync(Customer customer)
@@ -36,7 +35,7 @@ internal class CustomerRepository : ICustomerRepository
 
     public Task DeleteAsync(Customer customer)
     {
-        _writeDbContext.Set<Customer>().Remove(customer);
+        _dbContext.Customers.Remove(customer);
         return Task.CompletedTask;
     }
 }

@@ -30,7 +30,6 @@
 
     <ItemGroup>
       <Folder Include="Persistence\" />
-      <Folder Include="Persistence\EF\Contexts\EntityContexts\" />
     </ItemGroup>
 
 </Project>

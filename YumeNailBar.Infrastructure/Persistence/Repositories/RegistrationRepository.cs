@@ -2,36 +2,34 @@
 using YumeNailBar.Domain.AggregateModels.RegistrationAggregate;
 using YumeNailBar.Domain.AggregateModels.RegistrationAggregate.ValueObjects;
 using YumeNailBar.Domain.Repositories;
-using YumeNailBar.Infrastructure.Persistence.EF.Contexts;
+using YumeNailBar.Infrastructure.Persistence.EF.Contexts.ApplicationContext;
 
 namespace YumeNailBar.Infrastructure.Persistence.Repositories;
 
 internal sealed class RegistrationRepository : IRegistrationRepository
 {
-    private readonly DbSet<Registration> _registrations;
-    private readonly WriteDbContext _writeDbContext;
+    private readonly IApplicationDbContext _dbContext;
 
-    public RegistrationRepository(WriteDbContext writeDbContext)
+    public RegistrationRepository(IApplicationDbContext dbContext)
     {
-        _registrations = writeDbContext.Registrations;
-        _writeDbContext = writeDbContext;
+        _dbContext = dbContext;
     }
+
 
     public async Task<Registration?> GetAsync(RegistrationId id)
     {
-        return await _registrations
+        return await _dbContext.Registrations
             .FirstOrDefaultAsync(r => r.Id == id);
     }
 
     public async Task AddAsync(Registration registration)
     {
-        await _writeDbContext.Set<Registration>().AddAsync(registration);
-        await _writeDbContext.SaveChangesAsync();
+        await _dbContext.Registrations.AddAsync(registration);
     }
 
     public Task DeleteAsync(Registration registration)
     {
-        _writeDbContext.Set<Registration>().Remove(registration);
+        _dbContext.Registrations.Remove(registration);
         return Task.CompletedTask;
     }
 }
