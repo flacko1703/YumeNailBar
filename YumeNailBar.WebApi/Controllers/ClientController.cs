@@ -3,7 +3,7 @@ using FluentResults;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using YumeNailBar.Application.DTO;
-using YumeNailBar.Application.Registration.Commands.CreateClientCommand;
+using YumeNailBar.Application.Registration.Commands.CreateRegistrationCommand;
 using YumeNailBar.Application.Registration.Queries.GetRegistrationById;
 using YumeNailBar.Domain.Factories;
 
@@ -13,12 +13,12 @@ namespace YumeNailBar.WebApi.Controllers;
 [Route("api/[controller]")]
 public class ClientController : ControllerBase
 {
-    private readonly IClientFactory _clientFactory;
+    private readonly ICustomerFactory _customerFactory;
     private readonly IMediator _mediator;
 
-    public ClientController(IClientFactory clientFactory, IMediator mediator)
+    public ClientController(ICustomerFactory customerFactory, IMediator mediator)
     {
-        _clientFactory = clientFactory;
+        _customerFactory = customerFactory;
         _mediator = mediator;
     }
 
@@ -32,8 +32,21 @@ public class ClientController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Post([FromBody] RegistrationDto registration)
     {
-        var json = JsonSerializer.Serialize(registration);
-        return Ok(json);
+        var json = await _mediator
+            .Send(new CreateRegistrationCommand(registration.Id,
+            registration.ClientId,
+            registration.AppointmentDate,
+            registration.Procedures,
+            registration.Comment,
+            registration.IsCanceled));
+        
+        var result = CreatedAtAction(nameof(Get),
+            new
+            {
+                id = registration.Id
+            },
+            null);
+        return result;
     }
     
     

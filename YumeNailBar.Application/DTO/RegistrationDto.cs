@@ -2,5 +2,6 @@
 
 namespace YumeNailBar.Application.DTO;
 
-public record RegistrationDto(Guid Id, ClientDto Client, DateTime AppointmentDate, bool IsCanceled) 
-    : IMapWith<Domain.AggregatesModel.RegistrationAggregate.Registration>;
+public record RegistrationDto(Guid Id, Guid ClientId, DateTime AppointmentDate, 
+        IEnumerable<ProcedureDto> Procedures, string? Comment, bool IsCanceled) 
+            : IMapWith<Domain.AggregateModels.RegistrationAggregate.Registration>;

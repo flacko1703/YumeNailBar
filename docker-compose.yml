@@ -1,18 +1,27 @@
-﻿services:
+﻿networks:
+  yumenailbarnetwork:
+
+services:
   YumeNailBarDb:
       image: "mcr.microsoft.com/mssql/server:2022-latest"
       container_name: sql_server2022
       ports: # not actually needed, because the two services are on the same network
-        - "1433:1433"
+        - "11433:1433"
       environment:
-        - ACCEPT_EULA=y
-        - SA_PASSWORD=TEST
+        - ACCEPT_EULA=Y
+        - MSSQL_SA_PASSWORD=Zezenzus1703!
+      networks:
+        - yumenailbarnetwork
   yumenailbar.webapi:
     image: yumenailbar.webapi
-    ports:
-      - 8001:80
+    container_name: yumenailbarapi
     depends_on:
       - YumeNailBarDb
     build:
       context: .
       dockerfile: YumeNailBar.WebApi/Dockerfile
+    ports:
+      - 8080:80
+      - 8081:443
+    networks:
+      - yumenailbarnetwork

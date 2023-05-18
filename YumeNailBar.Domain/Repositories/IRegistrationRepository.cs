@@ -1,4 +1,5 @@
-﻿using YumeNailBar.Domain.AggregatesModel.RegistrationAggregate;
+﻿using YumeNailBar.Domain.AggregateModels.RegistrationAggregate;
+using YumeNailBar.Domain.AggregateModels.RegistrationAggregate.ValueObjects;
 
 namespace YumeNailBar.Domain.Repositories;
 

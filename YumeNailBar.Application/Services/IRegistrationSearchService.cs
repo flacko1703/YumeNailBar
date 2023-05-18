@@ -1,8 +1,9 @@
-﻿using YumeNailBar.Domain.AggregatesModel.RegistrationAggregate;
+﻿using YumeNailBar.Domain.AggregateModels.RegistrationAggregate.Entities;
+using YumeNailBar.Domain.AggregateModels.RegistrationAggregate.ValueObjects;
 
 namespace YumeNailBar.Application.Services;
 
 public interface IRegistrationSearchService
 {
-    Task<Client>? SearchByPhoneNumber(PhoneNumber phoneNumber);
+    Task<Customer>? SearchByPhoneNumber(PhoneNumber phoneNumber);
 }

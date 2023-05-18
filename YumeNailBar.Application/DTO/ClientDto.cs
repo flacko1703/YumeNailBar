@@ -1,9 +1,9 @@
 ﻿using YumeNailBar.Application.Common.Mappings;
-using YumeNailBar.Domain.AggregatesModel.RegistrationAggregate;
+using YumeNailBar.Domain.AggregateModels.RegistrationAggregate.Entities;
 
 namespace YumeNailBar.Application.DTO;
 
 public record ClientDto
-    (string ClientName, string PhoneNumber, IEnumerable<ProcedureDto> Procedures, string Comment) 
-    : IMapWith<Client>;
+    (Guid Id, string ClientName, string PhoneNumber) 
+    : IMapWith<Customer>;
 

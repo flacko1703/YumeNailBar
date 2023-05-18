@@ -1,5 +1,6 @@
-﻿using YumeNailBar.Domain.AggregatesModel.RegistrationAggregate;
-using YumeNailBar.Domain.SeedWork.Abstractions;
+﻿using YumeNailBar.Domain.Abstractions;
+using YumeNailBar.Domain.AggregateModels.RegistrationAggregate;
+using YumeNailBar.Domain.AggregateModels.RegistrationAggregate.Entities;
 
 namespace YumeNailBar.Domain.Events;
 

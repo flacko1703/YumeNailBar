@@ -1,29 +1,30 @@
 ﻿using FluentResults;
-using YumeNailBar.Domain.AggregatesModel.RegistrationAggregate;
+using YumeNailBar.Domain.AggregateModels.RegistrationAggregate.Entities;
+using YumeNailBar.Domain.AggregateModels.RegistrationAggregate.ValueObjects;
 using YumeNailBar.Domain.Repositories;
 
 namespace YumeNailBar.Application.Services;
 
 public class RegistrationSearchService : IRegistrationSearchService
 {
-    private readonly IClientRepository _clientRepository;
+    private readonly ICustomerRepository _customerRepository;
 
-    public RegistrationSearchService(IClientRepository clientRepository)
+    public RegistrationSearchService(ICustomerRepository customerRepository)
     {
-        _clientRepository = clientRepository;
+        _customerRepository = customerRepository;
     }
 
 
-    public async Task<Client>? SearchByPhoneNumber(PhoneNumber phoneNumber)
+    public async Task<Customer>? SearchByPhoneNumber(PhoneNumber phoneNumber)
     {
-        var client = await _clientRepository.GetAsync(phoneNumber);
+        var customer = await _customerRepository.GetAsync(phoneNumber);
 
-        if (client is null)
+        if (customer is null)
         {
-            Result.Fail(new Error($"Client with phone number {phoneNumber} not exists"));
+            Result.Fail(new Error($"Customer with phone number {phoneNumber} not exists"));
             return null;
         }
 
-        return client;
+        return customer;
     }
 }

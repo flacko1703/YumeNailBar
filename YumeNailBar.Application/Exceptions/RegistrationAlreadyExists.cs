@@ -1,8 +1,8 @@
-﻿using YumeNailBar.Domain.AggregatesModel.RegistrationAggregate;
+﻿using YumeNailBar.Domain.AggregateModels.RegistrationAggregate.ValueObjects;
 
 namespace YumeNailBar.Application.Exceptions;
 
-public class RegistrationAlreadyExists : YumeNailBarApplicationException
+internal class RegistrationAlreadyExists : ApplicationExceptionBase
 {
     public RegistrationAlreadyExists(PhoneNumber phoneNumber) 
     : base($"Registration entity with phone number {phoneNumber} already exists.")

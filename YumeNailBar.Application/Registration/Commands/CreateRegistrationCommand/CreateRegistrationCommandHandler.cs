@@ -1,6 +1,9 @@
 ﻿using FluentResults;
 using MediatR;
+using YumeNailBar.Application.Abstractions;
+using YumeNailBar.Application.DTO;
 using YumeNailBar.Application.Services;
+using YumeNailBar.Domain.AggregateModels.RegistrationAggregate.Entities;
 using YumeNailBar.Domain.Factories;
 using YumeNailBar.Domain.Repositories;
 
@@ -10,35 +13,41 @@ public class CreateRegistrationCommandHandler : IRequestHandler<CreateRegistrati
 {
     private readonly IRegistrationRepository _registrationRepository;
     private readonly IRegistrationFactory _registrationFactory;
-    private readonly IRegistrationSearchService _searchService;
-    private readonly IClientFactory _clientFactory;
+    private readonly ICustomerFactory _customerFactory;
+    private readonly IUnitOfWork _unitOfWork;
 
     public CreateRegistrationCommandHandler(IRegistrationRepository registrationRepository,
-        IRegistrationFactory registrationFactory, IRegistrationSearchService searchService, IClientFactory clientFactory)
+        IRegistrationFactory registrationFactory, ICustomerFactory customerFactory, 
+        IUnitOfWork unitOfWork)
     {
         _registrationRepository = registrationRepository;
         _registrationFactory = registrationFactory;
-        _searchService = searchService;
-        _clientFactory = clientFactory;
+        _customerFactory = customerFactory;
+        _unitOfWork = unitOfWork;
     }
     
     public async Task<Result> Handle(CreateRegistrationCommand request, CancellationToken cancellationToken)
     {
-        var (id, client, registrationDate, isCanceled) = request;
+        //RegistrationDTO
+        var (id, customerId, 
+            registrationDate, procedureDtos, 
+            comment, isCanceled) = request;
         
-        var searchResult = await _searchService.SearchByPhoneNumber(client.PhoneNumber);
-        
-        if (searchResult.ToResult().IsSuccess)
+        HashSet<Procedure> procedures = new HashSet<Procedure>();
+
+        if (procedureDtos.Any())
         {
-            return Result.Fail(new Error($"Client with phone number {client.PhoneNumber} already exists"));
-            //throw new RegistrationAlreadyExists(client.PhoneNumber);
+            foreach (var procedure in procedureDtos)
+            {
+                procedures.Add(Procedure.Create(procedure.ProcedureKind, procedure.Price));
+            }
         }
-
-        var newClient = _clientFactory.Create(client.ClientName, client.PhoneNumber); 
-
-        var registration = _registrationFactory.Create(id, newClient, registrationDate, isCanceled);
+        
+        var registration = _registrationFactory.Create(id, customerId, registrationDate, procedures, comment, isCanceled);
 
         await _registrationRepository.AddAsync(registration);
+
+        await _unitOfWork.SaveChangesAsync(cancellationToken);
 
         return Result.Ok();
     }

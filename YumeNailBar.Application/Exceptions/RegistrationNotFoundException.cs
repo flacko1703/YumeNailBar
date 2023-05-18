@@ -1,10 +1,10 @@
-﻿using YumeNailBar.Domain.AggregatesModel.RegistrationAggregate;
+﻿using YumeNailBar.Domain.AggregateModels.RegistrationAggregate.ValueObjects;
 
 namespace YumeNailBar.Application.Exceptions;
 
-public class RegistrationNotFoundException : YumeNailBarApplicationException
+internal class RegistrationNotFoundExceptionBase : ApplicationExceptionBase
 {
-    public RegistrationNotFoundException(RegistrationId id) 
+    public RegistrationNotFoundExceptionBase(RegistrationId id) 
         : base($"Registration entity with id {id} not found.")
     {
     }

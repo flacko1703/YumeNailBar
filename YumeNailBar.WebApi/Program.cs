@@ -3,7 +3,6 @@ using FluentResults;
 using MediatR;
 using Serilog;
 using YumeNailBar.Application;
-using YumeNailBar.Application.Registration.Commands.CreateClientCommand;
 using YumeNailBar.Domain;
 using YumeNailBar.Infrastructure;
 

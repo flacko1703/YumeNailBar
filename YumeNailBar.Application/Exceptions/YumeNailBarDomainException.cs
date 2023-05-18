@@ -1,8 +1,8 @@
 ﻿namespace YumeNailBar.Application.Exceptions;
 
-public class YumeNailBarApplicationException : Exception
+internal abstract class ApplicationExceptionBase : Exception
 {
-    protected YumeNailBarApplicationException(string message) : base(message)
+    protected ApplicationExceptionBase(string message) : base(message)
     {
         
     }

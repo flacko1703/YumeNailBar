@@ -1,5 +1,6 @@
 ﻿using FluentResults;
 using MediatR;
+using YumeNailBar.Application.Abstractions;
 using YumeNailBar.Application.Exceptions;
 using YumeNailBar.Domain.Repositories;
 
@@ -8,10 +9,12 @@ namespace YumeNailBar.Application.Registration.Commands.CancelRegistrationComman
 public class CancelRegistrationCommandHandler : IRequestHandler<CancelRegistrationCommand, Result>
 {
     private readonly IRegistrationRepository _repository;
+    private readonly IUnitOfWork _unitOfWork;
 
-    public CancelRegistrationCommandHandler(IRegistrationRepository repository)
+    public CancelRegistrationCommandHandler(IRegistrationRepository repository, IUnitOfWork unitOfWork)
     {
         _repository = repository;
+        _unitOfWork = unitOfWork;
     }
 
     public async Task<Result> Handle(CancelRegistrationCommand request, CancellationToken cancellationToken)
@@ -20,10 +23,12 @@ public class CancelRegistrationCommandHandler : IRequestHandler<CancelRegistrati
 
         if (entity is null)
         {
-            throw new RegistrationNotFoundException(request.Id);
+            throw new RegistrationNotFoundExceptionBase(request.Id);
         }
 
         await _repository.DeleteAsync(entity);
+
+        await _unitOfWork.SaveChangesAsync(cancellationToken);
         
         return Result.Ok();
     }
