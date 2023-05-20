@@ -15,8 +15,5 @@ internal class ProcedureConfiguration : IEntityTypeConfiguration<Procedure>
             .HasConversion(procedureId 
                 => procedureId.Value, value 
                 => new ProcedureId(value));
-        builder.Property(procedure => procedure.ProcedureKind).HasConversion<string>();
-        builder.Property(procedure => procedure.Price).HasConversion<string>();
-
     }
 }

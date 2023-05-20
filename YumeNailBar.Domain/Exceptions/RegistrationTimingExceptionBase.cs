@@ -1,4 +1,4 @@
-﻿using YumeNailBar.Domain.Abstractions;
+﻿using YumeNailBar.Domain.SeedWork;
 
 namespace YumeNailBar.Domain.Exceptions;
 

@@ -6,7 +6,7 @@ public record AppointmentDate
 {
     public AppointmentDate(DateTime value)
     {
-        if (value < DateTime.Now)
+        if (value < DateTime.UtcNow)
         {
             throw new DateCannotBeInPastExceptionBase(value);
         }
@@ -16,9 +16,9 @@ public record AppointmentDate
         //     throw new RegistrationTimingException(value);
         // }
 
-        Value = value;
+        Value = value.ToUniversalTime();
     }
-    public DateTime Value { get; init; }
+    public DateTime Value { get; }
 
     public static implicit operator DateTime(AppointmentDate date) => date.Value;
     public static implicit operator AppointmentDate(DateTime date) => new(date);

@@ -3,20 +3,20 @@ using YumeNailBar.Domain.Errors;
 
 namespace YumeNailBar.Domain.AggregateModels.RegistrationAggregate.ValueObjects;
 
-public record ProcedureId
+public record ProcedureKindId
 {
-    public ProcedureId(Guid value)
+    public ProcedureKindId(int value)
     {
-        if (value == Guid.Empty)
+        if (value.ToResult().IsFailed)
         {
             //TODO:Заменить на Exception
             Result.Fail(new EmptyProcedureGuidError().Message);
         }
     }
 
-    public Guid Value { get; }
+    public int Value { get; }
     
-    public static implicit operator Guid(ProcedureId id) => id.Value;
+    public static implicit operator int(ProcedureKindId id) => id.Value;
 
-    public static implicit operator ProcedureId(Guid id) => new(id);
+    public static implicit operator ProcedureKindId(int id) => new(id);
 }

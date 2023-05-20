@@ -4,7 +4,7 @@ namespace YumeNailBar.Domain.AggregateModels.RegistrationAggregate.ValueObjects;
 
 public record CustomerName
 {
-    public string Value { get; private set; }
+    public string Value { get; }
 
     public CustomerName(string value)
     {

@@ -1,5 +1,5 @@
-﻿using YumeNailBar.Domain.Abstractions;
-using YumeNailBar.Domain.AggregateModels.RegistrationAggregate.Entities;
+﻿using YumeNailBar.Domain.AggregateModels.RegistrationAggregate.Entities;
+using YumeNailBar.Domain.SeedWork;
 
 namespace YumeNailBar.Domain.Exceptions.ProcedureExceptions;
 

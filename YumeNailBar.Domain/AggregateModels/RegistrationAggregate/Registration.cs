@@ -1,57 +1,51 @@
-﻿using YumeNailBar.Domain.Abstractions;
+﻿using System.Collections.ObjectModel;
 using YumeNailBar.Domain.AggregateModels.RegistrationAggregate.Entities;
 using YumeNailBar.Domain.AggregateModels.RegistrationAggregate.ValueObjects;
 using YumeNailBar.Domain.Events;
 using YumeNailBar.Domain.Exceptions.ProcedureExceptions;
+using YumeNailBar.Domain.SeedWork;
 
 namespace YumeNailBar.Domain.AggregateModels.RegistrationAggregate;
 
 public record Registration : AggregateRoot<RegistrationId>
 {
-    private CustomerId _customerId;
+    private Customer _customer;
     private AppointmentDate _appointmentDate;
     private readonly HashSet<Procedure> _procedures = new();
     private string? _comment;
     private bool _isCanceled;
 
-    internal Registration(RegistrationId id, 
-        CustomerId customerId, 
+    private Registration(RegistrationId id, 
+        Customer customer, IEnumerable<Procedure> procedures,
         AppointmentDate appointmentDate, string? comment, bool isCanceled = false)
     {
         Id = id;
-        _customerId = customerId;
+        _customer = customer;
         _appointmentDate = appointmentDate;
         _comment = comment;
         _isCanceled = isCanceled;
     }
     
-    public Registration()
+    private Registration()
     {
         //For Entity Framework
     }
     
     public RegistrationId Id { get; init; }
-    public CustomerId CustomerId => _customerId;
+    public HashSet<Procedure> Procedures => _procedures;
 
-    public IEnumerable<Procedure> Procedures => _procedures;
-
-    public AppointmentDate AppointmentDate => _appointmentDate;
-
-    public string? Comment => _comment;
-
-    public bool IsCanceled => _isCanceled;
-
-    public static Registration Create(RegistrationId id, 
-        CustomerId customerId, 
+    public static Registration Create( 
+        Customer customer, 
+        IEnumerable<Procedure> procedures,
         AppointmentDate appointmentDate, 
         string? comment,
         bool isCanceled = false)
     {
-        return new Registration(id, customerId, appointmentDate, comment, isCanceled);
+        return new Registration(Guid.NewGuid(), customer, procedures, appointmentDate, comment, isCanceled);
     }
 
 
-    public IEnumerable<Procedure>? AddProcedure(CustomerId customerId, Procedure procedure)
+    public IEnumerable<Procedure>? AddProcedure(Procedure procedure)
     {
         if (_procedures.Any(x => x == procedure))
         {
@@ -64,8 +58,26 @@ public record Registration : AggregateRoot<RegistrationId>
 
         return _procedures;
     }
-    
-    
+
+    public Customer GetCustomer()
+    {
+        return _customer;
+    }
+
+    public bool GetStatus()
+    {
+        return _isCanceled;
+    }
+
+    public string? GetComment()
+    {
+        return _comment;
+    }
+
+    public AppointmentDate GetAppointmentDate()
+    {
+        return _appointmentDate;
+    }
 
     public IEnumerable<Procedure>? GetProcedures()
     {

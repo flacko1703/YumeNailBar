@@ -1,17 +1,19 @@
-﻿using YumeNailBar.Domain.Abstractions;
-using YumeNailBar.Domain.AggregateModels.RegistrationAggregate.ValueObjects;
+﻿using YumeNailBar.Domain.AggregateModels.RegistrationAggregate.ValueObjects;
+using YumeNailBar.Domain.SeedWork;
 
 namespace YumeNailBar.Domain.AggregateModels.RegistrationAggregate.Entities;
 
 public class Customer : IEntity<CustomerId>
 {
+    private CustomerId _customerId;
     private CustomerName _customerName;
     private PhoneNumber _phoneNumber;
     private Email? _email;
 
-    internal Customer(CustomerName customerName, 
+    private Customer(CustomerId customerId, CustomerName customerName, 
         PhoneNumber phoneNumber, Email? email)
     {
+        _customerId = customerId;
         _customerName = customerName;
         _phoneNumber = phoneNumber;
         _email = email;
@@ -23,34 +25,15 @@ public class Customer : IEntity<CustomerId>
     }
     
     public CustomerId Id { get; init; }
-    public CustomerName CustomerName => _customerName;
-    public PhoneNumber PhoneNumber => _phoneNumber;
-    public Email? Email => _email;
-
-    public static Customer Create(string value)
+    
+    public static Customer Create(CustomerName name, PhoneNumber phoneNumber, Email? email = default)
     {
-        var splitClientString = value.Split(',');
         return new Customer()
         {
-            _customerName = splitClientString.First(),
-            _phoneNumber = splitClientString.Last()
+            Id = Guid.NewGuid(),
+            _customerName = name,
+            _phoneNumber = phoneNumber,
+            _email = email
         };
     }
-
-    public string GetPhoneNumber()
-    {
-        return _phoneNumber;
-    }
-
-    public string GetEmail()
-    {
-        return _email;
-    }
-    
-    public override string ToString()
-    {
-        return $"{_customerName}, {_phoneNumber}";
-    }
-
-    
 }

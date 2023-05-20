@@ -14,7 +14,7 @@ public record CustomerId
         Value = value;
     }
     
-    public Guid Value { get; init; }
+    public Guid Value { get; }
     
     public static implicit operator Guid(CustomerId id) => id.Value;
 

@@ -1,11 +1,8 @@
-using System.Text.Json;
-using FluentResults;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using YumeNailBar.Application.DTO;
-using YumeNailBar.Application.Registration.Commands.CreateRegistrationCommand;
-using YumeNailBar.Application.Registration.Queries.GetRegistrationById;
-using YumeNailBar.Domain.Factories;
+using YumeNailBar.Application.RegistrationUseCases.Commands.CreateRegistrationCommand;
+using YumeNailBar.Application.RegistrationUseCases.Queries.GetRegistrationById;
 
 namespace YumeNailBar.WebApi.Controllers;
 
@@ -13,12 +10,10 @@ namespace YumeNailBar.WebApi.Controllers;
 [Route("api/[controller]")]
 public class ClientController : ControllerBase
 {
-    private readonly ICustomerFactory _customerFactory;
     private readonly IMediator _mediator;
 
-    public ClientController(ICustomerFactory customerFactory, IMediator mediator)
+    public ClientController(IMediator mediator)
     {
-        _customerFactory = customerFactory;
         _mediator = mediator;
     }
 
@@ -34,10 +29,8 @@ public class ClientController : ControllerBase
     {
         var json = await _mediator
             .Send(new CreateRegistrationCommand(registration.Id,
-            registration.CustomerId,
+            registration.Customer,
             registration.AppointmentDate,
-            registration.CustomerName,
-            registration.PhoneNumber,
             registration.Procedures,
             registration.Comment,
             registration.IsCanceled));

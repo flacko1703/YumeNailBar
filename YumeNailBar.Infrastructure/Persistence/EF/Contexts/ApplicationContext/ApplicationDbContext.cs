@@ -9,7 +9,7 @@ namespace YumeNailBar.Infrastructure.Persistence.EF.Contexts.ApplicationContext;
 internal sealed class ApplicationDbContext : DbContext, IApplicationDbContext, IUnitOfWork
 {
     private readonly IPublisher _publisher;
-    public ApplicationDbContext(DbContextOptions options, 
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, 
         IPublisher publisher)
         : base(options)
     {

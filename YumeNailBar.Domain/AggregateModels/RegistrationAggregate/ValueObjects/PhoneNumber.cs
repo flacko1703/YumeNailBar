@@ -16,7 +16,7 @@ public record PhoneNumber
         Value = value;
     }
 
-    public string Value { get; init; }
+    public string Value { get; }
     
     
     public static implicit operator string(PhoneNumber phoneNumber) => phoneNumber.Value;

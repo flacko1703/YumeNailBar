@@ -1,5 +1,5 @@
-﻿using YumeNailBar.Domain.Abstractions;
-using YumeNailBar.Domain.AggregateModels.RegistrationAggregate.ValueObjects;
+﻿using YumeNailBar.Domain.AggregateModels.RegistrationAggregate.ValueObjects;
+using YumeNailBar.Domain.SeedWork;
 
 namespace YumeNailBar.Domain.Exceptions.CustomerExceptions;
 

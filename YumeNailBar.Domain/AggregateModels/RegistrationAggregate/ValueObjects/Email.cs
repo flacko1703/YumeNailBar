@@ -16,7 +16,7 @@ public record Email
         Result.Ok(value);
     }
     
-    public string Value { get; init; }
+    public string Value { get; }
     
     public static implicit operator string(Email email) => email.Value;
 

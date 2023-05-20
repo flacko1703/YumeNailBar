@@ -4,7 +4,7 @@ namespace YumeNailBar.Domain.AggregateModels.RegistrationAggregate.ValueObjects;
 
 public record RegistrationId
 {
-    public Guid Value { get; init; }
+    public Guid Value { get; }
 
     public RegistrationId(Guid value)
     {
