@@ -1,8 +1,8 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using YumeNailBar.Application.DTO;
-using YumeNailBar.Application.RegistrationUseCases.Commands.CreateRegistrationCommand;
-using YumeNailBar.Application.RegistrationUseCases.Queries.GetRegistrationById;
+using YumeNailBar.Application.Registrations.Commands.CreateRegistrationCommand;
+using YumeNailBar.Application.Registrations.Queries.GetRegistrationById;
 
 namespace YumeNailBar.WebApi.Controllers;
 

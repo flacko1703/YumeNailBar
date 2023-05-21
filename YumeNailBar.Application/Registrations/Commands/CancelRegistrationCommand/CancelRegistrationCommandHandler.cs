@@ -4,7 +4,7 @@ using YumeNailBar.Application.Abstractions;
 using YumeNailBar.Application.Exceptions;
 using YumeNailBar.Domain.Repositories;
 
-namespace YumeNailBar.Application.RegistrationUseCases.Commands.CancelRegistrationCommand;
+namespace YumeNailBar.Application.Registrations.Commands.CancelRegistrationCommand;
 
 public class CancelRegistrationCommandHandler : IRequestHandler<CancelRegistrationCommand, Result>
 {

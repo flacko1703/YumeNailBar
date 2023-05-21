@@ -3,9 +3,9 @@ using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using YumeNailBar.Application.Abstractions;
 using YumeNailBar.Application.DTO;
-using YumeNailBar.Application.RegistrationUseCases.Commands.CancelRegistrationCommand;
-using YumeNailBar.Application.RegistrationUseCases.Commands.CreateRegistrationCommand;
-using YumeNailBar.Application.RegistrationUseCases.Queries.GetRegistrationById;
+using YumeNailBar.Application.Registrations.Commands.CancelRegistrationCommand;
+using YumeNailBar.Application.Registrations.Commands.CreateRegistrationCommand;
+using YumeNailBar.Application.Registrations.Queries.GetRegistrationById;
 using YumeNailBar.Domain.AggregateModels.RegistrationAggregate.Entities;
 
 namespace YumeNailBar.Application;

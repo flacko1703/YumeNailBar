@@ -15,6 +15,7 @@ public class RegistrationConfiguration : IEntityTypeConfiguration<Registration>
             .HasConversion(registrationId 
                 => registrationId.Value, value 
                 => new RegistrationId(value));
+        
 
     }
 }

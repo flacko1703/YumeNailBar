@@ -5,7 +5,7 @@ using YumeNailBar.Domain.AggregateModels.RegistrationAggregate;
 using YumeNailBar.Domain.AggregateModels.RegistrationAggregate.Entities;
 using YumeNailBar.Domain.Repositories;
 
-namespace YumeNailBar.Application.RegistrationUseCases.Commands.CreateRegistrationCommand;
+namespace YumeNailBar.Application.Registrations.Commands.CreateRegistrationCommand;
 
 public class CreateRegistrationCommandHandler : IRequestHandler<CreateRegistrationCommand, Result>
 {
@@ -33,11 +33,8 @@ public class CreateRegistrationCommandHandler : IRequestHandler<CreateRegistrati
             proceduresList.Add(Procedure.Create(procedure.ProcedureKind, procedure.Price));
         }
 
-        var registration = Registration.Create(Customer.Create(customer.Name,
-                customer.PhoneNumber),
-            proceduresList,
+        var registration = Registration.Create(customer.Id, proceduresList,
             registrationDate,
-            comment,
             isCanceled);
 
         

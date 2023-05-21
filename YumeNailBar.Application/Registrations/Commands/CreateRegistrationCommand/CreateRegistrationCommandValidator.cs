@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace YumeNailBar.Application.RegistrationUseCases.Commands.CreateRegistrationCommand;
+namespace YumeNailBar.Application.Registrations.Commands.CreateRegistrationCommand;
 
 public class CreateRegistrationCommandValidator : AbstractValidator<CreateRegistrationCommand>
 {

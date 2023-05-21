@@ -9,14 +9,16 @@ public class Customer : IEntity<CustomerId>
     private CustomerName _customerName;
     private PhoneNumber _phoneNumber;
     private Email? _email;
+    private string? _comment;
 
     private Customer(CustomerId customerId, CustomerName customerName, 
-        PhoneNumber phoneNumber, Email? email)
+        PhoneNumber phoneNumber, Email? email, string comment)
     {
         _customerId = customerId;
         _customerName = customerName;
         _phoneNumber = phoneNumber;
         _email = email;
+        _comment = comment;
     }
 
     private Customer()
@@ -26,14 +28,15 @@ public class Customer : IEntity<CustomerId>
     
     public CustomerId Id { get; init; }
     
-    public static Customer Create(CustomerName name, PhoneNumber phoneNumber, Email? email = default)
+    public static Customer Create(CustomerName name, PhoneNumber phoneNumber, Email? email, string? comment)
     {
         return new Customer()
         {
             Id = Guid.NewGuid(),
             _customerName = name,
             _phoneNumber = phoneNumber,
-            _email = email
+            _email = email,
+            _comment = comment
         };
     }
 }

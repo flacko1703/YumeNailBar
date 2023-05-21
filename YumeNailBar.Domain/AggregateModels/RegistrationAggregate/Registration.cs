@@ -9,20 +9,18 @@ namespace YumeNailBar.Domain.AggregateModels.RegistrationAggregate;
 
 public record Registration : AggregateRoot<RegistrationId>
 {
-    private Customer _customer;
+    private CustomerId _customerId;
     private AppointmentDate _appointmentDate;
-    private readonly HashSet<Procedure> _procedures = new();
-    private string? _comment;
+    private readonly List<Procedure> _procedures = new();
     private bool _isCanceled;
 
     private Registration(RegistrationId id, 
-        Customer customer, IEnumerable<Procedure> procedures,
-        AppointmentDate appointmentDate, string? comment, bool isCanceled = false)
+        CustomerId customerId, IEnumerable<Procedure> procedures,
+        AppointmentDate appointmentDate, bool isCanceled = false)
     {
         Id = id;
-        _customer = customer;
+        _customerId = customerId;
         _appointmentDate = appointmentDate;
-        _comment = comment;
         _isCanceled = isCanceled;
     }
     
@@ -32,16 +30,15 @@ public record Registration : AggregateRoot<RegistrationId>
     }
     
     public RegistrationId Id { get; init; }
-    public HashSet<Procedure> Procedures => _procedures;
+    public IReadOnlyList<Procedure> Procedures => _procedures.AsReadOnly();
 
     public static Registration Create( 
-        Customer customer, 
+        CustomerId customerId, 
         IEnumerable<Procedure> procedures,
         AppointmentDate appointmentDate, 
-        string? comment,
         bool isCanceled = false)
     {
-        return new Registration(Guid.NewGuid(), customer, procedures, appointmentDate, comment, isCanceled);
+        return new Registration(Guid.NewGuid(), customerId, procedures, appointmentDate, isCanceled);
     }
 
 
@@ -59,19 +56,13 @@ public record Registration : AggregateRoot<RegistrationId>
         return _procedures;
     }
 
-    public Customer GetCustomer()
+    public CustomerId GetCustomerId()
     {
-        return _customer;
+        return _customerId;
     }
-
     public bool GetStatus()
     {
         return _isCanceled;
-    }
-
-    public string? GetComment()
-    {
-        return _comment;
     }
 
     public AppointmentDate GetAppointmentDate()
