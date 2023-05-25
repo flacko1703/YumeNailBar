@@ -1,4 +1,4 @@
-﻿using YumeNailBar.Domain.AggregateModels.RegistrationAggregate.ValueObjects;
+﻿using YumeNailBar.Domain.AggregateModels.CustomerAggregate.ValueObjects;
 
 namespace YumeNailBar.Application.Exceptions;
 

@@ -7,16 +7,16 @@ namespace YumeNailBar.Application.Registrations.Queries.GetRegistrationById;
 
 public class GetRegistrationByIdQueryHandler : IRequestHandler<GetRegistrationByIdQuery, Result<RegistrationDto>>
 {
-    private readonly IRegistrationRepository _registrationRepository;
+    private readonly ICustomerRepository _customerRepository;
 
-    public GetRegistrationByIdQueryHandler(IRegistrationRepository registrationRepository)
+    public GetRegistrationByIdQueryHandler(ICustomerRepository customerRepository)
     {
-        _registrationRepository = registrationRepository;
+        _customerRepository = customerRepository;
     }
 
     public async Task<Result<RegistrationDto>> Handle(GetRegistrationByIdQuery request, CancellationToken cancellationToken)
     {
-        var registration = await _registrationRepository.GetAsync(request.Id);
+        var registration = await _customerRepository.GetAsync(request.Id);
 
         if (registration is null)
         {

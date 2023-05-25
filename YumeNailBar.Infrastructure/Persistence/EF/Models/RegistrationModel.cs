@@ -1,4 +1,6 @@
-﻿namespace YumeNailBar.Infrastructure.Persistence.EF.Models;
+﻿using YumeNailBar.Domain.AggregateModels.CustomerAggregate;
+
+namespace YumeNailBar.Infrastructure.Persistence.EF.Models;
 
 internal sealed class RegistrationModel
 {

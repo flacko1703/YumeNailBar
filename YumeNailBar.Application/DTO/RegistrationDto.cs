@@ -1,8 +1,15 @@
 ﻿using YumeNailBar.Application.Common.Mappings;
-using YumeNailBar.Domain.AggregateModels.RegistrationAggregate.Entities;
+using YumeNailBar.Domain.AggregateModels.CustomerAggregate.Entities;
 
 namespace YumeNailBar.Application.DTO;
 
-public record RegistrationDto(Guid Id, CustomerDto Customer, DateTime AppointmentDate, 
-        IEnumerable<ProcedureDto> Procedures, string? Comment, bool IsCanceled) 
-            : IMapWith<Domain.AggregateModels.RegistrationAggregate.Registration>;
+public record RegistrationDto(Guid Id, DateTime AppointmentDate,
+        IEnumerable<ProcedureDto> Procedures, bool IsCanceled)
+    : IMapWith<Registration>
+{
+    public Registration ToDomainModel()
+    {
+        var procedureList = Procedures.Select(procedure => procedure.ToDomainModel()).ToList();
+        return Registration.Create(procedureList, AppointmentDate, IsCanceled);
+    }
+}

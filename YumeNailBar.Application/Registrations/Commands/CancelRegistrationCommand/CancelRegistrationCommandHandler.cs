@@ -8,10 +8,10 @@ namespace YumeNailBar.Application.Registrations.Commands.CancelRegistrationComma
 
 public class CancelRegistrationCommandHandler : IRequestHandler<CancelRegistrationCommand, Result>
 {
-    private readonly IRegistrationRepository _repository;
+    private readonly ICustomerRepository _repository;
     private readonly IUnitOfWork _unitOfWork;
 
-    public CancelRegistrationCommandHandler(IRegistrationRepository repository, IUnitOfWork unitOfWork)
+    public CancelRegistrationCommandHandler(ICustomerRepository repository, IUnitOfWork unitOfWork)
     {
         _repository = repository;
         _unitOfWork = unitOfWork;

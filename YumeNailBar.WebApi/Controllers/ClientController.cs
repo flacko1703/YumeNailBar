@@ -1,8 +1,10 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using YumeNailBar.Application.DTO;
-using YumeNailBar.Application.Registrations.Commands.CreateRegistrationCommand;
+using YumeNailBar.Application.Registrations.Commands.CreateCustomerCommand;
 using YumeNailBar.Application.Registrations.Queries.GetRegistrationById;
+using YumeNailBar.Domain.AggregateModels.CustomerAggregate;
+using YumeNailBar.Domain.AggregateModels.CustomerAggregate.Entities;
 
 namespace YumeNailBar.WebApi.Controllers;
 
@@ -25,22 +27,18 @@ public class ClientController : ControllerBase
     }
     
     [HttpPost]
-    public async Task<IActionResult> Post([FromBody] RegistrationDto registration)
+    public async Task<IActionResult> Post([FromBody] CustomerDto customer)
     {
-        var json = await _mediator
-            .Send(new CreateRegistrationCommand(registration.Id,
-            registration.Customer,
-            registration.AppointmentDate,
-            registration.Procedures,
-            registration.Comment,
-            registration.IsCanceled));
-        
-        var result = CreatedAtAction(nameof(Get),
-            new
-            {
-                id = registration.Id
-            },
-            null);
+        var procedures = customer.Registration.Procedures
+            .Select(procedure => procedure.ToDomainModel()).ToList();
+
+        var registration = Registration.Create(procedures, customer.Registration.AppointmentDate,
+            customer.Registration.IsCanceled);
+
+        var customerModel = await _mediator.Send(new CreateCustomerCommand(registration, customer.Name,
+            customer.PhoneNumber, customer.Email, customer.Comment));
+
+        var result = CreatedAtAction(nameof(Get), new { id = customer.Id }, null);
         return result;
     }
     

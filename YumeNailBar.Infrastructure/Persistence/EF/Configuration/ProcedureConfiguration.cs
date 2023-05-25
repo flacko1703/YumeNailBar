@@ -1,19 +1,20 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using YumeNailBar.Domain.AggregateModels.RegistrationAggregate;
-using YumeNailBar.Domain.AggregateModels.RegistrationAggregate.Entities;
-using YumeNailBar.Domain.AggregateModels.RegistrationAggregate.ValueObjects;
+using YumeNailBar.Domain.AggregateModels.CustomerAggregate.Entities;
+using YumeNailBar.Domain.AggregateModels.CustomerAggregate.ValueObjects;
 
 namespace YumeNailBar.Infrastructure.Persistence.EF.Configuration;
 
-internal class ProcedureConfiguration : IEntityTypeConfiguration<Procedure>
+public class ProcedureConfiguration : IEntityTypeConfiguration<Procedure>
 {
     public void Configure(EntityTypeBuilder<Procedure> builder)
     {
-        builder.HasKey(procedure => procedure.Id);
-        builder.Property(procedure => procedure.Id)
-            .HasConversion(procedureId 
-                => procedureId.Value, value 
-                => new ProcedureId(value));
+        builder.HasKey(x => x.Id);
+        builder.Property(x => x.Id)
+            .IsRequired()
+            .HasConversion(x => x.Value, 
+                value => new ProcedureId(value));
+        builder.Property(x => x.ProcedureKind).IsRequired();
+        builder.Property(x => x.Price).IsRequired();
     }
 }

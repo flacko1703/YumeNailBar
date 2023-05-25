@@ -1,5 +1,4 @@
 ﻿using FluentResults;
-using YumeNailBar.Domain.AggregateModels.RegistrationAggregate.ValueObjects;
 
 namespace YumeNailBar.Domain.Errors;
 
