@@ -29,7 +29,6 @@ public class RegistrationConfiguration : IEntityTypeConfiguration<Registration>
         
         //IsCanceled Configuration
         builder.Property(typeof(bool), "_isCanceled")
-            .IsRequired()
             .HasColumnName("Status");
         
         //Procedures Configuration
