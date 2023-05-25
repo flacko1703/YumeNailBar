@@ -62,8 +62,9 @@ namespace YumeNailBar.Infrastructure.Migrations
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProcedureKind")
-                        .HasColumnType("int");
+                    b.Property<string>("ProcedureKind")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid?>("RegistrationId")
                         .HasColumnType("uniqueidentifier");

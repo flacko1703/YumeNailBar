@@ -50,7 +50,7 @@ namespace YumeNailBar.Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ProcedureKind = table.Column<int>(type: "int", nullable: false),
+                    ProcedureKind = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<int>(type: "int", nullable: false),
                     RegistrationId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },

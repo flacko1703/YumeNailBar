@@ -12,7 +12,7 @@ using YumeNailBar.Infrastructure.Persistence.EF.Contexts.ApplicationContext;
 namespace YumeNailBar.Infrastructure.Migrations
 {
     [DbContext(typeof(CustomerDbContext))]
-    [Migration("20230525040803_Initial")]
+    [Migration("20230525052143_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -65,8 +65,9 @@ namespace YumeNailBar.Infrastructure.Migrations
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProcedureKind")
-                        .HasColumnType("int");
+                    b.Property<string>("ProcedureKind")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid?>("RegistrationId")
                         .HasColumnType("uniqueidentifier");

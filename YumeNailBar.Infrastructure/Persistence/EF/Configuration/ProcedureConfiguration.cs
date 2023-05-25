@@ -9,12 +9,14 @@ public class ProcedureConfiguration : IEntityTypeConfiguration<Procedure>
 {
     public void Configure(EntityTypeBuilder<Procedure> builder)
     {
-        builder.HasKey(x => x.Id);
         builder.Property(x => x.Id)
             .IsRequired()
             .HasConversion(x => x.Value, 
                 value => new ProcedureId(value));
-        builder.Property(x => x.ProcedureKind).IsRequired();
+        builder.Property(x => x.ProcedureKind).IsRequired()
+            .HasConversion(
+                v => v.ToString(),
+                v => (ProcedureKind)Enum.Parse(typeof(ProcedureKind), v));
         builder.Property(x => x.Price).IsRequired();
     }
 }
