@@ -12,7 +12,7 @@ using YumeNailBar.Infrastructure.Persistence.EF.Contexts.ApplicationContext;
 namespace YumeNailBar.Infrastructure.Migrations
 {
     [DbContext(typeof(CustomerDbContext))]
-    [Migration("20230525030119_Initial")]
+    [Migration("20230525035626_Initial")]
     partial class Initial
     {
         /// <inheritdoc />

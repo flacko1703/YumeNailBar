@@ -12,6 +12,7 @@ public static class MsSqlServiceExtension
     public static IServiceCollection AddPersistence(this IServiceCollection services, IConfiguration configuration)
     {
         var options = configuration.GetOptions<MsSqlServerOptions>("MsSqlServer");
+        
         services.AddDbContext<CustomerDbContext>(ctx 
             => ctx.UseSqlServer(options.ConnectionString));
 
