@@ -16,9 +16,14 @@ public record AppointmentDate
         //     throw new RegistrationTimingException(value);
         // }
 
-        Value = value.ToUniversalTime();
+        Value = value;
     }
     public DateTime Value { get; }
+
+    public override string ToString()
+    {
+        return this.Value.ToString("dd.MM.yyyy HH:mm");
+    }
 
     public static implicit operator DateTime(AppointmentDate date) => date.Value;
     public static implicit operator AppointmentDate(DateTime date) => new(date);

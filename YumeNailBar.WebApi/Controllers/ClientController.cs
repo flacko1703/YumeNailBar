@@ -28,7 +28,7 @@ public class ClientController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> Get(Guid Id)
     {
-        var result = await _mediator.Send(new GetRegistrationByIdQuery(Id));
+        var result = await _mediator.Send(new GetCustomerByIdQuery(Id));
         return Ok(result);
     }
     
