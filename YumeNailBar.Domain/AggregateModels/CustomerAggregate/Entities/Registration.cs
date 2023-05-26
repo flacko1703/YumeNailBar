@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections;
+using System.Collections.ObjectModel;
 using YumeNailBar.Domain.AggregateModels.CustomerAggregate.ValueObjects;
 using YumeNailBar.Domain.Exceptions.ProcedureExceptions;
 using YumeNailBar.Domain.SeedWork;
@@ -28,6 +29,8 @@ public record Registration : IEntity<RegistrationId>
     
     public RegistrationId Id { get; init; }
 
+    public IEnumerable<Procedure> Procedures => _procedures;
+
     public static Registration Create( 
         IEnumerable<Procedure> procedures,
         AppointmentDate appointmentDate, 
@@ -38,13 +41,15 @@ public record Registration : IEntity<RegistrationId>
 
     public IEnumerable<Procedure>? AddProcedure(Procedure procedure)
     {
-        if (_procedures.Any(x => x == procedure))
+        var procedures = new List<Procedure>();
+        
+        if (Procedures.Any(x => x == procedure))
         {
             throw new ProcedureAlreadyExistsException(procedure);
         }
         
-        _procedures.ToList().Add(procedure);
-        return _procedures;
+        procedures.Add(procedure);
+        return procedures;
     }
 
    
@@ -60,10 +65,6 @@ public record Registration : IEntity<RegistrationId>
 
     public IEnumerable<Procedure> GetProcedures()
     {
-        if (!_procedures.Any())
-        {
-            throw new ProcedureNotFoundException();
-        }
         return _procedures;
     }
 

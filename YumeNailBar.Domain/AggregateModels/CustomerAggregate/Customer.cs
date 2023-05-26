@@ -42,7 +42,7 @@ public record Customer : AggregateRoot<CustomerId>
         {
             Id = id,
             _registration = Registration.Create(
-                    registration.GetProcedures(), 
+                    registration.Procedures.ToList(), 
                     registration.GetAppointmentDate(), 
                     registration.GetStatus()),
             _customerName = name,
@@ -67,5 +67,25 @@ public record Customer : AggregateRoot<CustomerId>
     public Registration GetRegistration()
     {
         return _registration;
+    }
+
+    public CustomerName GetName()
+    {
+        return _customerName;
+    }
+
+    public Email GetEmail()
+    {
+        return _email;
+    }
+
+    public PhoneNumber GetPhoneNumber()
+    {
+        return _phoneNumber;
+    }
+
+    public string GetComment()
+    {
+        return _comment;
     }
 }

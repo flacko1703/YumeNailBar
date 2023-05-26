@@ -1,10 +1,14 @@
+using AutoMapper;
+using FluentResults;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using YumeNailBar.Application.Customers.Commands.CreateCustomerCommand;
+using YumeNailBar.Application.Customers.Queries.GetRegistrationById;
 using YumeNailBar.Application.DTO;
-using YumeNailBar.Application.Registrations.Commands.CreateCustomerCommand;
-using YumeNailBar.Application.Registrations.Queries.GetRegistrationById;
 using YumeNailBar.Domain.AggregateModels.CustomerAggregate;
 using YumeNailBar.Domain.AggregateModels.CustomerAggregate.Entities;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace YumeNailBar.WebApi.Controllers;
 
@@ -13,10 +17,12 @@ namespace YumeNailBar.WebApi.Controllers;
 public class ClientController : ControllerBase
 {
     private readonly IMediator _mediator;
+    private readonly IMapper _mapper;
 
-    public ClientController(IMediator mediator)
+    public ClientController(IMediator mediator, IMapper mapper)
     {
         _mediator = mediator;
+        _mapper = mapper;
     }
 
     [HttpGet]
@@ -27,19 +33,15 @@ public class ClientController : ControllerBase
     }
     
     [HttpPost]
-    public async Task<IActionResult> Post([FromBody] CustomerDto customer)
+    public async Task<IActionResult> Post([FromBody] CustomerDto customerDto)
     {
-        var procedures = customer.Registration.Procedures
-            .Select(procedure => procedure.ToDomainModel()).ToList();
-
-        var registration = Registration.Create(procedures, customer.Registration.AppointmentDate,
-            customer.Registration.IsCanceled);
-
-        var customerModel = await _mediator.Send(new CreateCustomerCommand(registration, customer.Name,
-            customer.PhoneNumber, customer.Email, customer.Comment));
-
-        var result = CreatedAtAction(nameof(Get), new { id = customer.Id }, null);
-        return result;
+        var result = await _mediator
+            .Send(new CreateCustomerCommand(customerDto.Registration, customerDto.Name,
+                customerDto.PhoneNumber, customerDto.Email, customerDto.Comment));
+        
+        //var json = JsonSerializer.Serialize<Result<Customer>>(result);
+        
+        return Ok();
     }
     
     

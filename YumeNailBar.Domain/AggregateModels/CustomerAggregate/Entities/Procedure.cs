@@ -5,13 +5,12 @@ namespace YumeNailBar.Domain.AggregateModels.CustomerAggregate.Entities;
 
 public record Procedure : IEntity<ProcedureId>
 {
-    private ProcedureId _procedureId;
     private ProcedureKind _procedureKind;
     private int _price;
 
-    private Procedure(ProcedureId procedureId, ProcedureKind procedureKind, int price)
+    private Procedure(ProcedureKind procedureKind, int price)
     {
-        Id = procedureId;
+        Id = Guid.NewGuid();
         _procedureKind = procedureKind;
         _price = price;
     }
@@ -20,18 +19,14 @@ public record Procedure : IEntity<ProcedureId>
     {
         //For Entity Framework
     }
-    
-    public ProcedureId Id { get; init; }
+
+    public ProcedureId Id { get; init; } = new ProcedureId(Guid.NewGuid());
     public ProcedureKind ProcedureKind => _procedureKind;
     public int Price => _price;
 
     public static Procedure Create(ProcedureKind procedureKind, int price)
     {
-        return new Procedure()
-        {
-            Id = Guid.NewGuid(),
-            _procedureKind = procedureKind,
-            _price = price
-        };
+        var procedure = new Procedure(procedureKind, price);
+        return procedure;
     }
 }

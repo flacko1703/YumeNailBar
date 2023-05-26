@@ -1,7 +1,7 @@
 ﻿using FluentResults;
 using MediatR;
 
-namespace YumeNailBar.Application.Registrations.Commands.CancelRegistrationCommand;
+namespace YumeNailBar.Application.Customers.Commands.CancelRegistrationCommand;
 
 public record CancelRegistrationCommand(Guid Id) : IRequest<Result>;
 

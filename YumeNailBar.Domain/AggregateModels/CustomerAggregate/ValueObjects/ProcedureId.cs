@@ -12,9 +12,16 @@ public record ProcedureId
             //TODO:Заменить на Exception
             Result.Fail(new EmptyProcedureGuidError().Message);
         }
+
+        Value = value;
     }
 
     public Guid Value { get; }
+
+    public static ProcedureId SetUniqueValue()
+    {
+        return Guid.NewGuid();
+    }
     
     public static implicit operator Guid(ProcedureId id) => id.Value;
 

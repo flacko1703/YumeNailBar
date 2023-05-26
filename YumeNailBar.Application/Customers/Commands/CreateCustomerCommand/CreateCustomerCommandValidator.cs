@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace YumeNailBar.Application.Registrations.Commands.CreateCustomerCommand;
+namespace YumeNailBar.Application.Customers.Commands.CreateCustomerCommand;
 
 public class CreateCustomerCommandValidator : AbstractValidator<CreateCustomerCommand>
 {

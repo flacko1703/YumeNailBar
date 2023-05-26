@@ -3,7 +3,7 @@ using MediatR;
 using YumeNailBar.Application.DTO;
 using YumeNailBar.Domain.Repositories;
 
-namespace YumeNailBar.Application.Registrations.Queries.GetRegistrationById;
+namespace YumeNailBar.Application.Customers.Queries.GetRegistrationById;
 
 public class GetRegistrationByIdQueryHandler : IRequestHandler<GetRegistrationByIdQuery, Result<RegistrationDto>>
 {
