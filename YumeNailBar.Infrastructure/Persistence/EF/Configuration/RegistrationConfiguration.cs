@@ -12,6 +12,8 @@ public class RegistrationConfiguration : IEntityTypeConfiguration<Registration>
 {
     public void Configure(EntityTypeBuilder<Registration> builder)
     {
+        builder.ToTable(DbNames.RegistrationTable);
+        
         //AppointmentDate Configuration
         builder.HasKey(r => r.Id);
         builder.Property(x => x.Id)
@@ -21,8 +23,9 @@ public class RegistrationConfiguration : IEntityTypeConfiguration<Registration>
 
         
         //AppointmentDate Configuration
-        var appointmentDateConversion = new ValueConverter<AppointmentDate, DateTime>(date => date.Value,
-            value => new AppointmentDate(value));
+        var appointmentDateConversion = new ValueConverter<AppointmentDate, DateTime>(
+            date => date.Value,
+            value=> new AppointmentDate(value));
         builder.Property(typeof(AppointmentDate), "_appointmentDate")
             .HasConversion(appointmentDateConversion)
             .HasColumnName(nameof(AppointmentDate));
@@ -30,9 +33,6 @@ public class RegistrationConfiguration : IEntityTypeConfiguration<Registration>
         //IsCanceled Configuration
         builder.Property(typeof(bool), "_isCanceled")
             .HasColumnName("Status");
-        
-        //Procedures Configuration
-        builder.HasMany(typeof(Procedure), "_procedures")
-            .WithOne();
+       
     }
 }

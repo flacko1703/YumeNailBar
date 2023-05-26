@@ -18,11 +18,6 @@ public record ProcedureId
 
     public Guid Value { get; }
 
-    public static ProcedureId SetUniqueValue()
-    {
-        return Guid.NewGuid();
-    }
-    
     public static implicit operator Guid(ProcedureId id) => id.Value;
 
     public static implicit operator ProcedureId(Guid id) => new(id);

@@ -57,6 +57,5 @@ public class CustomerConfiguration : IEntityTypeConfiguration<Customer>
         builder.Property(typeof(string), "_comment")
             .HasMaxLength(500)
             .HasColumnName("Comment");
-
     }
 }

@@ -27,7 +27,7 @@ namespace YumeNailBar.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Registration",
+                name: "Registrations",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -37,16 +37,16 @@ namespace YumeNailBar.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Registration", x => x.Id);
+                    table.PrimaryKey("PK_Registrations", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Registration_Customers_CustomerId",
+                        name: "FK_Registrations_Customers_CustomerId",
                         column: x => x.CustomerId,
                         principalTable: "Customers",
                         principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
-                name: "Procedure",
+                name: "Procedures",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -56,22 +56,22 @@ namespace YumeNailBar.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Procedure", x => x.Id);
+                    table.PrimaryKey("PK_Procedures", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Procedure_Registration_RegistrationId",
+                        name: "FK_Procedures_Registrations_RegistrationId",
                         column: x => x.RegistrationId,
-                        principalTable: "Registration",
+                        principalTable: "Registrations",
                         principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Procedure_RegistrationId",
-                table: "Procedure",
+                name: "IX_Procedures_RegistrationId",
+                table: "Procedures",
                 column: "RegistrationId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Registration_CustomerId",
-                table: "Registration",
+                name: "IX_Registrations_CustomerId",
+                table: "Registrations",
                 column: "CustomerId",
                 unique: true,
                 filter: "[CustomerId] IS NOT NULL");
@@ -81,10 +81,10 @@ namespace YumeNailBar.Infrastructure.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Procedure");
+                name: "Procedures");
 
             migrationBuilder.DropTable(
-                name: "Registration");
+                name: "Registrations");
 
             migrationBuilder.DropTable(
                 name: "Customers");

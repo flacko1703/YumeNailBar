@@ -2,4 +2,4 @@
 
 namespace YumeNailBar.Application.DTO;
 
-public record ProcedureDto(Guid Id, ProcedureKind ProcedureKind, int Price);
+public record ProcedureDto(ProcedureKind ProcedureKind, int Price);

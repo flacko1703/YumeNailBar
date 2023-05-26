@@ -12,7 +12,7 @@ using YumeNailBar.Infrastructure.Persistence.EF.Contexts.ApplicationContext;
 namespace YumeNailBar.Infrastructure.Migrations
 {
     [DbContext(typeof(CustomerDbContext))]
-    [Migration("20230525052143_Initial")]
+    [Migration("20230526034119_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -76,7 +76,7 @@ namespace YumeNailBar.Infrastructure.Migrations
 
                     b.HasIndex("RegistrationId");
 
-                    b.ToTable("Procedure");
+                    b.ToTable("Procedures", (string)null);
                 });
 
             modelBuilder.Entity("YumeNailBar.Domain.AggregateModels.CustomerAggregate.Entities.Registration", b =>
@@ -101,13 +101,13 @@ namespace YumeNailBar.Infrastructure.Migrations
                         .IsUnique()
                         .HasFilter("[CustomerId] IS NOT NULL");
 
-                    b.ToTable("Registration");
+                    b.ToTable("Registrations", (string)null);
                 });
 
             modelBuilder.Entity("YumeNailBar.Domain.AggregateModels.CustomerAggregate.Entities.Procedure", b =>
                 {
                     b.HasOne("YumeNailBar.Domain.AggregateModels.CustomerAggregate.Entities.Registration", null)
-                        .WithMany("_procedures")
+                        .WithMany("Procedures")
                         .HasForeignKey("RegistrationId");
                 });
 
@@ -125,7 +125,7 @@ namespace YumeNailBar.Infrastructure.Migrations
 
             modelBuilder.Entity("YumeNailBar.Domain.AggregateModels.CustomerAggregate.Entities.Registration", b =>
                 {
-                    b.Navigation("_procedures");
+                    b.Navigation("Procedures");
                 });
 #pragma warning restore 612, 618
         }

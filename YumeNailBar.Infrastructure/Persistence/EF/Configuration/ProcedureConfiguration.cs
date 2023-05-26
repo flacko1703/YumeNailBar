@@ -9,6 +9,9 @@ public class ProcedureConfiguration : IEntityTypeConfiguration<Procedure>
 {
     public void Configure(EntityTypeBuilder<Procedure> builder)
     {
+        builder.ToTable(DbNames.ProcedureTable);
+
+        builder.HasKey(x => x.Id);
         builder.Property(x => x.Id)
             .IsRequired()
             .HasConversion(x => x.Value, 

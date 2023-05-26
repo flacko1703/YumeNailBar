@@ -12,7 +12,7 @@ public static class ProcedureMap
     
     public static ProcedureDto ToDto(this Procedure procedure)
     {
-        return new ProcedureDto(procedure.Id, procedure.ProcedureKind, procedure.Price);
+        return new ProcedureDto(procedure.ProcedureKind, procedure.Price);
     }
     
     
