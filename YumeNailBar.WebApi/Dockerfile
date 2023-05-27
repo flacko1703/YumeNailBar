@@ -6,6 +6,9 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 COPY ["YumeNailBar.WebApi/YumeNailBar.WebApi.csproj", "YumeNailBar.WebApi/"]
+COPY ["YumeNailBar.Application/YumeNailBar.Application.csproj", "YumeNailBar.Application/"]
+COPY ["YumeNailBar.Domain/YumeNailBar.Domain.csproj", "YumeNailBar.Domain/"]
+COPY ["YumeNailBar.Infrastructure/YumeNailBar.Infrastructure.csproj", "YumeNailBar.Infrastructure/"]
 RUN dotnet restore "YumeNailBar.WebApi/YumeNailBar.WebApi.csproj"
 COPY . .
 WORKDIR "/src/YumeNailBar.WebApi"
