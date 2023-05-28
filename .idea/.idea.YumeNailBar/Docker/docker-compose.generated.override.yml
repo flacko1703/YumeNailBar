@@ -7,13 +7,25 @@ services:
       target: "base"
     command: []
     entrypoint:
-    - "dotnet"
-    - "/app/bin/Debug/net7.0/YumeNailBar.WebApi.dll"
-    environment: {}
+    - "/riderDebugger/linux-x64/dotnet/dotnet"
+    - "/riderDebugger/JetBrains.Debugger.Worker.exe"
+    - "--mode=server"
+    - "--frontend-port=57100"
+    - "--backend-port=57300"
+    environment:
+      RIDER_DEBUGGER_LOG_DIR: "/riderLogs"
+      RESHARPER_LOG_CONF: "/riderLogsConf/backend-log.xml"
     image: "yumenailbar.webapi:dev"
-    ports: []
+    ports:
+    - "57007:57100"
+    - "57207:57300"
     volumes:
     - "C:\\Users\\proto\\AppData\\Roaming\\ASP.NET\\Https:/root/.aspnet/https"
     - "C:\\Users\\proto\\AppData\\Roaming\\Microsoft\\UserSecrets:/root/.microsoft/usersecrets"
     - "C:\\DEV\\YumeNailBar\\YumeNailBar.WebApi:/app:rw"
+    - "C:\\Users\\proto\\AppData\\Local\\JetBrains\\RiderRemoteDebugger\\2023.1.2\\\
+      Linux64:/riderDebugger"
+    - "C:\\Users\\proto\\AppData\\Local\\JetBrains\\Toolbox\\apps\\Rider\\ch-0\\231.9011.39/bin:/riderLogsConf"
+    - "C:\\Users\\proto\\AppData\\Local\\JetBrains\\Rider2023.1\\log\\DebuggerWorker\\\
+      JetBrains.Debugger.Worker.2023_5_28_09_53_12:/riderLogs:rw"
     working_dir: "/app"

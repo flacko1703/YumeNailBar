@@ -2,7 +2,7 @@
 
 namespace YumeNailBar.Infrastructure.Persistence.EF.Models;
 
-internal sealed class CustomerModel
+public sealed class CustomerModel
 {
     public Guid Id { get; set; }
     public RegistrationModel Registration { get; set; }

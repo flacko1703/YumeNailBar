@@ -21,6 +21,11 @@ internal sealed class CustomerRepository : ICustomerRepository
             .SingleOrDefaultAsync(customer => customer.Id == id);
     }
 
+    public async Task<IEnumerable<Customer>?> GetAllCustomers()
+    {
+        return _dbContext.Customers;
+    }
+
     public async Task AddAsync(Customer customer)
     {
         await _dbContext.Customers.AddAsync(customer);

@@ -4,6 +4,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using YumeNailBar.Application.Customers.Commands.CreateCustomerCommand;
+using YumeNailBar.Application.Customers.Queries.GetAllCustomers;
 using YumeNailBar.Application.Customers.Queries.GetRegistrationById;
 using YumeNailBar.Application.DTO;
 using YumeNailBar.Domain.AggregateModels.CustomerAggregate;
@@ -25,10 +26,17 @@ public class ClientController : ControllerBase
         _mapper = mapper;
     }
 
-    [HttpGet]
+    [HttpGet("{Id}")]
     public async Task<IActionResult> Get(Guid Id)
     {
         var result = await _mediator.Send(new GetCustomerByIdQuery(Id));
+        return Ok(result);
+    }
+    
+    [HttpGet]
+    public async Task<IActionResult> GetAll()
+    {
+        var result = await _mediator.Send(new GetAllCustomersQuery());
         return Ok(result);
     }
     
