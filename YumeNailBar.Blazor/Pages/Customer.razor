@@ -1,0 +1,57 @@
+﻿@page "/Customer"
+@using YumeNailBar.Domain.AggregateModels.CustomerAggregate.Entities
+@using YumeNailBar.Domain.AggregateModels.CustomerAggregate.ValueObjects
+<h3 xmlns="http://www.w3.org/1999/html">Customer</h3>
+
+<div>
+    <EditForm Model="@CustomerModel" OnValidSubmit="@HandleValidInput">
+        <div class="form-control">
+            <label class="form-label">Name</label>
+            <InputText @bind-Value="@CustomerModel.Name"></InputText>
+        </div>
+        <div class="form-control">
+            <label class="form-label">PhoneNumber</label>
+            <InputText @bind-Value="@CustomerModel.PhoneNumber"></InputText>
+        </div>
+        <div class="form-control">
+            <label class="form-label">Email</label>
+            <InputText @bind-Value="@CustomerModel.Email"></InputText>
+        </div>
+        <div class="form-control">
+            <label class="form-label">Comment</label>
+            <InputText @bind-Value="@CustomerModel.Comment"></InputText>
+        </div>
+        <div class="form-control">
+            <label class="form-label">Procedure</label>
+            <InputSelect TValue="@ProcedureKind" @bind-Value="@CustomerModel.ProcedureKind">
+                @foreach (var Item in Enum.GetValues(typeof(ProcedureKind)))
+                {
+                    <option value="@Item">@Item</option>
+                    
+                }
+                
+            </InputSelect>
+            
+            
+        </div>
+        <ul>
+            @foreach (var p in @CustomerModel.Procedures)
+            {
+                <li>@p.ProcedureKind</li>
+            }
+        </ul>
+        <div class="form-control">
+            <label class="form-label">Date</label>
+            <InputDate TValue="@DateTime" @bind-Value="@CustomerModel.Date"></InputDate>
+        </div>
+        
+        <br>
+            <div>
+                <button type="submit">Save</button>
+            </div>
+    </EditForm>
+</div>
+
+@code {
+    
+}

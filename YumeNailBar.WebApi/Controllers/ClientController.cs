@@ -1,15 +1,10 @@
 using AutoMapper;
-using FluentResults;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 using YumeNailBar.Application.Customers.Commands.CreateCustomerCommand;
 using YumeNailBar.Application.Customers.Queries.GetAllCustomers;
-using YumeNailBar.Application.Customers.Queries.GetRegistrationById;
+using YumeNailBar.Application.Customers.Queries.GetCustomerById;
 using YumeNailBar.Application.DTO;
-using YumeNailBar.Domain.AggregateModels.CustomerAggregate;
-using YumeNailBar.Domain.AggregateModels.CustomerAggregate.Entities;
-using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace YumeNailBar.WebApi.Controllers;
 
@@ -27,10 +22,10 @@ public class ClientController : ControllerBase
     }
 
     [HttpGet("{Id}")]
-    public async Task<IActionResult> Get(Guid Id)
+    public async Task<CustomerDto> Get(Guid Id)
     {
         var result = await _mediator.Send(new GetCustomerByIdQuery(Id));
-        return Ok(result);
+        return result;
     }
     
     [HttpGet]

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="Beget">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$/YumeNailBar.sln" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.WebApi/YumeNailBar.WebApi.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/YumeNailBar.Domain.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application/YumeNailBar.Application.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Infrastructure/YumeNailBar.Infrastructure.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application.Tests/YumeNailBar.Application.Tests.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Infrastructure.Tests/YumeNailBar.Infrastructure.Tests.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain.Tests/YumeNailBar.Domain.Tests.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Presentation.Tests/YumeNailBar.Presentation.Tests.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/docker-compose.yml" web="/" />
+            <mapping local="$PROJECT_DIR$/docker-compose.dcproj" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

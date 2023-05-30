@@ -3,13 +3,14 @@ using FluentResults;
 using MediatR;
 using YumeNailBar.Application.Abstractions;
 using YumeNailBar.Application.Common.Mappings.Manual;
+using YumeNailBar.Application.DTO;
 using YumeNailBar.Domain.AggregateModels.CustomerAggregate;
 using YumeNailBar.Domain.AggregateModels.CustomerAggregate.ValueObjects;
 using YumeNailBar.Domain.Repositories;
 
 namespace YumeNailBar.Application.Customers.Commands.CreateCustomerCommand;
 
-public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, Result>
+public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, Result<CustomerDto>>
 {
     private readonly ICustomerRepository _customerRepository;
     private readonly IMapper _mapper;
@@ -23,7 +24,7 @@ public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerComman
         _mapper = mapper;
     }
     
-    public async Task<Result> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
+    public async Task<Result<CustomerDto>> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
     {
         var registrationModel = request.Registration.ToDomainModel();
         var customer = Customer.Create(registrationModel, 
@@ -35,6 +36,6 @@ public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerComman
 
         await _unitOfWork.SaveChangesAsync(cancellationToken);
 
-        return Result.Ok();
+        return Result.Ok(customer.ToDto());
     }
 }

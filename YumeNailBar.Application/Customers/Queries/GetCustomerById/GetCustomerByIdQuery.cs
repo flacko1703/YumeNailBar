@@ -1,7 +1,8 @@
-﻿using YumeNailBar.Application.Abstractions;
+﻿using MediatR;
+using YumeNailBar.Application.Abstractions;
 using YumeNailBar.Application.DTO;
 
-namespace YumeNailBar.Application.Customers.Queries.GetRegistrationById;
+namespace YumeNailBar.Application.Customers.Queries.GetCustomerById;
 
 public record GetCustomerByIdQuery(Guid Id) 
-    : IQuery<RegistrationDto>;
+    : IRequest<CustomerDto>;
