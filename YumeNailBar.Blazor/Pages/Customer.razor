@@ -4,26 +4,26 @@
 <h3 xmlns="http://www.w3.org/1999/html">Customer</h3>
 
 <div>
-    <EditForm Model="@CustomerModel" OnValidSubmit="@HandleValidInput">
-        <div class="form-control">
+    <EditForm class="form-vertical py-5" Model="@CustomerModel" OnValidSubmit="@HandleValidInput">
+        <div class="mb-3">
             <label class="form-label">Name</label>
-            <InputText @bind-Value="@CustomerModel.Name"></InputText>
+            <InputText class="form-control" @bind-Value="@CustomerModel.Name"></InputText>
         </div>
-        <div class="form-control">
+        <div class="mb-3">
             <label class="form-label">PhoneNumber</label>
-            <InputText @bind-Value="@CustomerModel.PhoneNumber"></InputText>
+            <InputText class="form-control" @bind-Value="@CustomerModel.PhoneNumber"></InputText>
         </div>
-        <div class="form-control">
+        <div class="mb-3">
             <label class="form-label">Email</label>
-            <InputText @bind-Value="@CustomerModel.Email"></InputText>
+            <InputText class="form-control" @bind-Value="@CustomerModel.Email"></InputText>
         </div>
-        <div class="form-control">
+        <div class="mb-3">
             <label class="form-label">Comment</label>
-            <InputText @bind-Value="@CustomerModel.Comment"></InputText>
+            <InputText class="form-control" @bind-Value="@CustomerModel.Comment"></InputText>
         </div>
-        <div class="form-control">
+        <div class="mb-3">
             <label class="form-label">Procedure</label>
-            <InputSelect TValue="@ProcedureKind" @bind-Value="@CustomerModel.ProcedureKind">
+            <InputSelect class="form-control" TValue="@ProcedureKind" @bind-Value="@CustomerModel.ProcedureKind">
                 @foreach (var Item in Enum.GetValues(typeof(ProcedureKind)))
                 {
                     <option value="@Item">@Item</option>
@@ -40,15 +40,14 @@
                 <li>@p.ProcedureKind</li>
             }
         </ul>
-        <div class="form-control">
+        <div class="mb-3">
             <label class="form-label">Date</label>
-            <InputDate TValue="@DateTime" @bind-Value="@CustomerModel.Date"></InputDate>
+            <InputDate class="form-control" TValue="@DateTime" @bind-Value="@CustomerModel.Date"></InputDate>
         </div>
-        
         <br>
-            <div>
-                <button type="submit">Save</button>
-            </div>
+        <div class="mb-3">
+            <button class="btn btn-primary" type="submit">Save</button>
+        </div>
     </EditForm>
 </div>
 

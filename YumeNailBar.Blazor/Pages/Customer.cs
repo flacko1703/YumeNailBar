@@ -16,6 +16,12 @@ public partial class Customer
 
     public CustomerViewModel CustomerModel { get; set; } = new();
 
+    protected override Task OnInitializedAsync()
+    {
+        CustomerModel.Date = DateTime.Today;
+        return base.OnInitializedAsync();
+    }
+
     private async Task HandleValidInput()
     {
         if (Id == Guid.Empty)
