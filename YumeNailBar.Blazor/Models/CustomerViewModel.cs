@@ -1,5 +1,4 @@
 ﻿using YumeNailBar.Application.DTO;
-using YumeNailBar.Domain.AggregateModels.CustomerAggregate.Entities;
 using YumeNailBar.Domain.AggregateModels.CustomerAggregate.ValueObjects;
 
 namespace YumeNailBar.Blazor.Models;
@@ -20,7 +19,11 @@ public class CustomerViewModel
 
     public static CustomerDto ToDto(CustomerViewModel model)
     {
-        return new CustomerDto(new RegistrationDto(model.Date, model.Procedures, false), model.Name, 
+        return new CustomerDto(new List<RegistrationDto>()
+            {
+                new RegistrationDto(model.Date, model.Procedures, false)
+            }, 
+            model.Name, 
             model.PhoneNumber,
             model.Email, model.Comment);
     }

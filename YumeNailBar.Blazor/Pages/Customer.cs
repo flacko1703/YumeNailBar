@@ -3,7 +3,6 @@ using YumeNailBar.Application.DTO;
 using YumeNailBar.Blazor.Models;
 using YumeNailBar.Blazor.Services;
 using YumeNailBar.Domain.AggregateModels.CustomerAggregate.ValueObjects;
-using YumeNailBar.Infrastructure.Persistence.EF.Models;
 
 namespace YumeNailBar.Blazor.Pages;
 

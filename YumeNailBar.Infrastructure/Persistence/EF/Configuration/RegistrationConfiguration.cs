@@ -1,5 +1,4 @@
-﻿using System.Runtime.InteropServices.JavaScript;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using YumeNailBar.Domain.AggregateModels.CustomerAggregate;
@@ -21,6 +20,9 @@ public class RegistrationConfiguration : IEntityTypeConfiguration<Registration>
             .HasConversion(x => x.Value, 
                 value => new RegistrationId(value));
 
+        builder.HasOne<Customer>()
+            .WithMany(c => c.Registrations)
+            .HasForeignKey("CustomerRegistrationId");
         
         //AppointmentDate Configuration
         var appointmentDateConversion = new ValueConverter<AppointmentDate, DateTime>(
@@ -29,7 +31,7 @@ public class RegistrationConfiguration : IEntityTypeConfiguration<Registration>
         builder.Property(typeof(AppointmentDate), "_appointmentDate")
             .HasConversion(appointmentDateConversion)
             .HasColumnName(nameof(AppointmentDate));
-        
+
         //IsCanceled Configuration
         builder.Property(typeof(bool), "_isCanceled")
             .HasColumnName("Status");

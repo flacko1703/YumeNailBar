@@ -15,11 +15,11 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddApplicationLayer(this IServiceCollection services)
     {
-        services.AddScoped<IRequestHandler<CreateCustomerCommand, Result<CustomerDto>>, CreateCustomerCommandHandler>();
+        services.AddScoped<IRequestHandler<CreateCustomerCommand, Result<Customer>>, CreateCustomerCommandHandler>();
         services.AddScoped<IRequestHandler<GetCustomerByIdQuery, CustomerDto>, GetCustomerByIdQueryHandler>();
-        services.AddScoped<IRequestHandler<GetAllCustomersQuery, Result<IEnumerable<Customer>>>, GetAllCustomersQueryHandler>();
+        services.AddScoped<IRequestHandler<GetAllCustomersQuery, IEnumerable<Customer>>, GetAllCustomersQueryHandler>();
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<ApplicationAssemblyReference>());
-        services.AddAutoMapper(typeof(CustomerMappingProfile), typeof(ProcedureMappingProfile), typeof(RegistrationMappingProfile));
+        //services.AddAutoMapper(typeof(CustomerMappingProfile));
         return services;
     }
 }

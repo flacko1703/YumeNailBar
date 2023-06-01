@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
-using FluentResults;
 using MediatR;
-using YumeNailBar.Application.Common.Mappings.Manual;
+using YumeNailBar.Application.Common.Mappings.ManualMappings;
 using YumeNailBar.Application.DTO;
 using YumeNailBar.Domain.AggregateModels.CustomerAggregate;
 using YumeNailBar.Domain.Repositories;
@@ -11,12 +10,10 @@ namespace YumeNailBar.Application.Customers.Queries.GetCustomerById;
 public class GetCustomerByIdQueryHandler : IRequestHandler<GetCustomerByIdQuery, CustomerDto>
 {
     private readonly ICustomerRepository _customerRepository;
-    private readonly IMapper _mapper;
 
-    public GetCustomerByIdQueryHandler(ICustomerRepository customerRepository, IMapper mapper)
+    public GetCustomerByIdQueryHandler(ICustomerRepository customerRepository)
     {
         _customerRepository = customerRepository;
-        _mapper = mapper;
     }
 
     public async Task<CustomerDto> Handle(GetCustomerByIdQuery request, CancellationToken cancellationToken)
@@ -29,6 +26,6 @@ public class GetCustomerByIdQueryHandler : IRequestHandler<GetCustomerByIdQuery,
         }
 
 
-        return _mapper.Map<Customer, CustomerDto>(customer);
+        return customer.Value.MapToDto();
     }
 }

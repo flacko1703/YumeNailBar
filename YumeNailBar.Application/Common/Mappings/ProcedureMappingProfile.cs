@@ -10,10 +10,16 @@ public class ProcedureMappingProfile : Profile
     public ProcedureMappingProfile()
     {
         CreateMap<Procedure, ProcedureDto>()
-            .ForMember(dto => dto.ProcedureKind, opt => opt.MapFrom(p => p.ProcedureKind))
-            .ForMember(dto => dto.Price, opt => opt.MapFrom(p => p.Price));
+            .ForMember(dto => dto.ProcedureKind, opt 
+                => opt.MapFrom(p => p.ProcedureKind))
+            .ForMember(dto => dto.Price, opt 
+                => opt.MapFrom(p => p.Price));
         CreateMap<ProcedureDto, Procedure>()
-            .ForMember(proc => proc.ProcedureKind, opt => opt.MapFrom(dto => dto.ProcedureKind))
-            .ForMember(proc => proc.Price, opt => opt.MapFrom(dto => dto.Price));
+            .ForMember(proc => proc.ProcedureKind, opt 
+                => opt.MapFrom(dto => dto.ProcedureKind))
+            .ForMember(proc => proc.Price, opt 
+                => opt.MapFrom(dto => dto.Price));
+
+        CreateMap<List<Procedure>, List<ProcedureDto>>().ReverseMap();
     }
 }

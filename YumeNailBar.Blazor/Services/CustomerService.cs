@@ -1,9 +1,6 @@
-﻿using System.Text.Json;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using RestSharp;
-using YumeNailBar.Application.Common.Mappings.Manual;
 using YumeNailBar.Application.DTO;
-using YumeNailBar.Blazor.Pages;
 
 namespace YumeNailBar.Blazor.Services;
 

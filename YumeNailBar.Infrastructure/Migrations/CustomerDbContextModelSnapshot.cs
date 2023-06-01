@@ -81,7 +81,7 @@ namespace YumeNailBar.Infrastructure.Migrations
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("CustomerId")
+                    b.Property<Guid?>("CustomerRegistrationId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("_appointmentDate")
@@ -94,9 +94,7 @@ namespace YumeNailBar.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CustomerId")
-                        .IsUnique()
-                        .HasFilter("[CustomerId] IS NOT NULL");
+                    b.HasIndex("CustomerRegistrationId");
 
                     b.ToTable("Registrations", (string)null);
                 });
@@ -111,13 +109,13 @@ namespace YumeNailBar.Infrastructure.Migrations
             modelBuilder.Entity("YumeNailBar.Domain.AggregateModels.CustomerAggregate.Entities.Registration", b =>
                 {
                     b.HasOne("YumeNailBar.Domain.AggregateModels.CustomerAggregate.Customer", null)
-                        .WithOne("_registration")
-                        .HasForeignKey("YumeNailBar.Domain.AggregateModels.CustomerAggregate.Entities.Registration", "CustomerId");
+                        .WithMany("Registrations")
+                        .HasForeignKey("CustomerRegistrationId");
                 });
 
             modelBuilder.Entity("YumeNailBar.Domain.AggregateModels.CustomerAggregate.Customer", b =>
                 {
-                    b.Navigation("_registration");
+                    b.Navigation("Registrations");
                 });
 
             modelBuilder.Entity("YumeNailBar.Domain.AggregateModels.CustomerAggregate.Entities.Registration", b =>

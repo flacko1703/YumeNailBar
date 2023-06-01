@@ -7,7 +7,7 @@
         <entry key="Common:c7ecddf9-a687-471e-9900-1f52b9455ea2:dbContext" value="YumeNailBar.Infrastructure.Persistence.EF.Contexts.ApplicationContext.CustomerDbContext" />
         <entry key="Common:noBuild" value="false" />
         <entry key="Common:outputFolder" value="Migrations" />
-        <entry key="Common:useDefaultConnection" value="false" />
+        <entry key="Common:useDefaultConnection" value="true" />
       </map>
     </option>
   </component>

@@ -1,10 +1,7 @@
-﻿using AutoMapper.Execution;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using YumeNailBar.Domain.AggregateModels.CustomerAggregate;
-using YumeNailBar.Domain.AggregateModels.CustomerAggregate.Entities;
 using YumeNailBar.Domain.AggregateModels.CustomerAggregate.ValueObjects;
 
 namespace YumeNailBar.Infrastructure.Persistence.EF.Configuration;
@@ -22,11 +19,11 @@ public class CustomerConfiguration : IEntityTypeConfiguration<Customer>
             .HasConversion(c => c.Value,
                 value => new(value));
 
-        //Registration Configuration
-        builder.HasOne(typeof(Registration), "_registration")
-            .WithOne()
-            .HasForeignKey(typeof(Registration));
         
+        builder.HasMany(x => x.Registrations)
+            .WithOne()
+            .HasForeignKey("CustomerRegistrationId");
+
         //CustomerName Configuration
         var customerNameConversion = new ValueConverter<CustomerName, string>(name => name.Value,
             value => new CustomerName(value));

@@ -1,41 +1,42 @@
-﻿using AutoMapper;
-using FluentResults;
+﻿using FluentResults;
 using MediatR;
 using YumeNailBar.Application.Abstractions;
-using YumeNailBar.Application.Common.Mappings.Manual;
+using YumeNailBar.Application.Common.Mappings.ManualMappings;
 using YumeNailBar.Application.DTO;
 using YumeNailBar.Domain.AggregateModels.CustomerAggregate;
+using YumeNailBar.Domain.AggregateModels.CustomerAggregate.Entities;
 using YumeNailBar.Domain.AggregateModels.CustomerAggregate.ValueObjects;
 using YumeNailBar.Domain.Repositories;
 
 namespace YumeNailBar.Application.Customers.Commands.CreateCustomerCommand;
 
-public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, Result<CustomerDto>>
+public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, Result<Customer>>
 {
     private readonly ICustomerRepository _customerRepository;
-    private readonly IMapper _mapper;
     private readonly IUnitOfWork _unitOfWork;
 
     public CreateCustomerCommandHandler(ICustomerRepository customerRepository,
-        IUnitOfWork unitOfWork, IMapper mapper)
+        IUnitOfWork unitOfWork)
     {
         _customerRepository = customerRepository;
         _unitOfWork = unitOfWork;
-        _mapper = mapper;
     }
     
-    public async Task<Result<CustomerDto>> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
+    public async Task<Result<Customer>> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
     {
-        var registrationModel = request.Registration.ToDomainModel();
-        var customer = Customer.Create(registrationModel, 
+        var requestRegistrations = request.Registrations;
+                
+        var customer = Customer.Create(requestRegistrations, 
             new CustomerName(request.Name), 
             new PhoneNumber(request.PhoneNumber),
             new Email(request.Email), request.Comment);
+        
+        
         
         await _customerRepository.AddAsync(customer);
 
         await _unitOfWork.SaveChangesAsync(cancellationToken);
 
-        return Result.Ok(customer.ToDto());
+        return Result.Ok(customer);
     }
 }

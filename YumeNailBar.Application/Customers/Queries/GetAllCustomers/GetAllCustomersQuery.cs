@@ -5,4 +5,4 @@ using YumeNailBar.Domain.AggregateModels.CustomerAggregate;
 
 namespace YumeNailBar.Application.Customers.Queries.GetAllCustomers;
 
-public record GetAllCustomersQuery : IRequest<Result<IEnumerable<Customer>>>;
+public record GetAllCustomersQuery : IRequest<IEnumerable<Customer>>;

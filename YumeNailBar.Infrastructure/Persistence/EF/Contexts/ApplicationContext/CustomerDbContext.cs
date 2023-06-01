@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using YumeNailBar.Application.Abstractions;
 using YumeNailBar.Domain.AggregateModels.CustomerAggregate;
-using YumeNailBar.Domain.AggregateModels.CustomerAggregate.Entities;
 using YumeNailBar.Infrastructure.Persistence.EF.Configuration;
 
 namespace YumeNailBar.Infrastructure.Persistence.EF.Contexts.ApplicationContext;

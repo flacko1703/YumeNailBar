@@ -1,14 +1,12 @@
 ﻿using FluentResults;
 using MediatR;
-using YumeNailBar.Application.Abstractions;
-using YumeNailBar.Application.Common.Mappings.Manual;
-using YumeNailBar.Application.DTO;
+using YumeNailBar.Application.Common.Mappings.ManualMappings;
 using YumeNailBar.Domain.AggregateModels.CustomerAggregate;
 using YumeNailBar.Domain.Repositories;
 
 namespace YumeNailBar.Application.Customers.Queries.GetAllCustomers;
 
-public class GetAllCustomersQueryHandler : IRequestHandler<GetAllCustomersQuery, Result<IEnumerable<Customer>>>
+public class GetAllCustomersQueryHandler : IRequestHandler<GetAllCustomersQuery, IEnumerable<Customer>>
 {
     private readonly ICustomerRepository _customerRepository;
 
@@ -17,15 +15,15 @@ public class GetAllCustomersQueryHandler : IRequestHandler<GetAllCustomersQuery,
         _customerRepository = customerRepository;
     }
 
-    public async Task<Result<IEnumerable<Customer>>> Handle(GetAllCustomersQuery request, CancellationToken cancellationToken)
+    public async Task<IEnumerable<Customer>> Handle(GetAllCustomersQuery request, CancellationToken cancellationToken)
     {
-        var customers = await _customerRepository.GetAllCustomers();
+        var customers = _customerRepository.GetAllCustomers().Value;
 
-        if (customers is not null && customers.ToList().Any())
+        if (customers is not null && customers.Any())
         {
             return customers.ToList();
         }
 
-        return null;
+        return customers;
     }
 }

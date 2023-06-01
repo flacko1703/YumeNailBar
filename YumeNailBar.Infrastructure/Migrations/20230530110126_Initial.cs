@@ -31,7 +31,7 @@ namespace YumeNailBar.Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CustomerId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    CustomerRegistrationId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     AppointmentDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Status = table.Column<bool>(type: "bit", nullable: false)
                 },
@@ -39,8 +39,8 @@ namespace YumeNailBar.Infrastructure.Migrations
                 {
                     table.PrimaryKey("PK_Registrations", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Registrations_Customers_CustomerId",
-                        column: x => x.CustomerId,
+                        name: "FK_Registrations_Customers_CustomerRegistrationId",
+                        column: x => x.CustomerRegistrationId,
                         principalTable: "Customers",
                         principalColumn: "Id");
                 });
@@ -70,11 +70,9 @@ namespace YumeNailBar.Infrastructure.Migrations
                 column: "RegistrationId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Registrations_CustomerId",
+                name: "IX_Registrations_CustomerRegistrationId",
                 table: "Registrations",
-                column: "CustomerId",
-                unique: true,
-                filter: "[CustomerId] IS NOT NULL");
+                column: "CustomerRegistrationId");
         }
 
         /// <inheritdoc />
