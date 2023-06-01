@@ -9,7 +9,7 @@ main {
 }
 
 .sidebar {
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    background-image: url(https://cdn.pixabay.com/photo/2015/10/30/20/13/boat-1014711_960_720.jpg);
 }
 
 .top-row {

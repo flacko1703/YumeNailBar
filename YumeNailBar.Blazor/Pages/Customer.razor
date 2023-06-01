@@ -3,7 +3,7 @@
 @using YumeNailBar.Domain.AggregateModels.CustomerAggregate.ValueObjects
 <h3 xmlns="http://www.w3.org/1999/html">Customer</h3>
 
-<div>
+<div class="page-background-class">
     <EditForm class="form-vertical py-5" Model="@CustomerModel" OnValidSubmit="@HandleValidInput">
         <div class="mb-3">
             <label class="form-label">Name</label>
@@ -29,17 +29,9 @@
                     <option value="@Item">@Item</option>
                     
                 }
-                
             </InputSelect>
-            
-            
         </div>
-        <ul>
-            @foreach (var p in @CustomerModel.Procedures)
-            {
-                <li>@p.ProcedureKind</li>
-            }
-        </ul>
+        
         <div class="mb-3">
             <label class="form-label">Date</label>
             <InputDate class="form-control" TValue="@DateTime" @bind-Value="@CustomerModel.Date"></InputDate>

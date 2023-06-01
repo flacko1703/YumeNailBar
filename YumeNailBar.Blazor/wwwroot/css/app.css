@@ -95,6 +95,9 @@ a, .btn-link {
     font-weight: bold;
     inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
 }
+.page-background-class {
+    background-image:url(vivid-blurred-colorful-wallpaper-background.jpg);
+}
 
     .loading-progress-text:after {
         content: var(--blazor-load-percentage-text, "Loading");
