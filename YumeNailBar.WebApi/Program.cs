@@ -1,6 +1,7 @@
 using System.Reflection;
 using FluentResults;
 using MediatR;
+using Microsoft.Net.Http.Headers;
 using Serilog;
 using YumeNailBar.Application;
 using YumeNailBar.Domain;
@@ -26,7 +27,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(builder =>
-        builder.WithOrigins("https://localhost:7085")
+        builder.WithOrigins("https://yumenailbar.vercel.app",
+                "https://localhost:7085")
             .AllowAnyHeader()
             .AllowAnyMethod());
 });
@@ -64,7 +66,12 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-app.UseCors();
+app.UseCors(policy =>
+    policy
+        .WithOrigins("https://yumenailbar.vercel.app",
+            "https://localhost:7085")
+        .AllowAnyMethod()
+        .WithHeaders(HeaderNames.ContentType));
 
 app.MapControllers();
 

@@ -3,15 +3,18 @@
 
 services:
   YumeNailBarDb:
-      image: "mcr.microsoft.com/mssql/server:2022-latest"
-      container_name: sql_server2022
-      ports: # not actually needed, because the two services are on the same network
-        - "11433:1433"
+      image: "postgres:16beta1-bullseye"
+      container_name: PostgreSQL
+      ports:
+        - "5433:5432"
       environment:
-        - ACCEPT_EULA=Y
-        - MSSQL_SA_PASSWORD=Zezenzus1703!
+        - POSTGRES_USER=flacko1703
+        - POSTGRES_PASSWORD=Example96!
+        - POSTGRES_DB=YumeNailBarDb
       networks:
         - yumenailbarnetwork
+      volumes:
+        - ./postgres-data:/var/lib/postgresql/data
   yumenailbar.webapi:
     image: yumenailbar.webapi
     container_name: yumenailbarapi

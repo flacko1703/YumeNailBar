@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using YumeNailBar.Domain.AggregateModels.CustomerAggregate;
@@ -17,7 +18,7 @@ public class RegistrationConfiguration : IEntityTypeConfiguration<Registration>
         builder.HasKey(r => r.Id);
         builder.Property(x => x.Id)
             .IsRequired()
-            .HasConversion(x => x.Value, 
+            .HasConversion(x => x.Value,
                 value => new RegistrationId(value));
 
         builder.HasOne<Customer>()

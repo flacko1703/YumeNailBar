@@ -20,6 +20,229 @@
           </mappings>
         </serverdata>
       </paths>
+      <paths name="InfinityFree">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$/YumeNailBar.sln" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/YumeNailBar.Domain.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application/YumeNailBar.Application.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Infrastructure/YumeNailBar.Infrastructure.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.WebApi/YumeNailBar.WebApi.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Console/YumeNailBar.Console.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/YumeNailBar.Blazor.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain.Tests/YumeNailBar.Domain.Tests.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application.Tests/YumeNailBar.Application.Tests.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Infrastructure.Tests/YumeNailBar.Infrastructure.Tests.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Presentation.Tests/YumeNailBar.Presentation.Tests.csproj" web="/" />
+            <mapping local="$PROJECT_DIR$/docker-compose.dcproj" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/AggregateModels/CustomerAggregate/Entities/Procedure.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/AggregateModels/CustomerAggregate/Entities/Registration.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/AggregateModels/CustomerAggregate/ValueObjects/AppointmentDate.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/AggregateModels/CustomerAggregate/ValueObjects/CustomerId.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/AggregateModels/CustomerAggregate/ValueObjects/CustomerName.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/AggregateModels/CustomerAggregate/ValueObjects/Email.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/AggregateModels/CustomerAggregate/ValueObjects/PhoneNumber.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/AggregateModels/CustomerAggregate/ValueObjects/ProcedureId.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/AggregateModels/CustomerAggregate/ValueObjects/ProcedureKind.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/AggregateModels/CustomerAggregate/ValueObjects/ProcedureKindId.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/AggregateModels/CustomerAggregate/ValueObjects/RegistrationId.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/AggregateModels/CustomerAggregate/Customer.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/Errors/EmptyEmailError.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/Errors/EmptyProcedureGuidError.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/Events/DomainEventProvider.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/Events/ProcedureAddedDomainEvent.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/Events/RegistrationAddedDomainEvent.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/Exceptions/CustomerExceptions/InvalidPhoneNumberException.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/Exceptions/CustomerExceptions/NullCustomerIdException.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/Exceptions/CustomerExceptions/NullRegistrationIdException.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/Exceptions/ProcedureExceptions/ProcedureAlreadyExistsException.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/Exceptions/ProcedureExceptions/ProcedureEmptyPriceException.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/Exceptions/ProcedureExceptions/ProcedureKindNotSetException.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/Exceptions/ProcedureExceptions/ProcedureNotFoundException.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/Exceptions/DateCannotBeInPastException.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/Exceptions/EmptyNameException.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/Exceptions/RegistrationAlreadyExistsException.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/Exceptions/RegistrationTimingException.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/Repositories/ICustomerRepository.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/SeedWork/AggregateRoot.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/SeedWork/DomainExceptionBase.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/SeedWork/Entity.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/SeedWork/Enumeration.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/SeedWork/IDomainEvent.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/SeedWork/IEntity.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/obj/Debug/net7.0/YumeNailBar.Domain.GlobalUsings.g.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/obj/Debug/net7.0/YumeNailBar.Domain.AssemblyInfo.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/obj/Debug/net7.0/YumeNailBar.Domain.GeneratedMSBuildEditorConfig.editorconfig" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/DependencyInjection.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain/DomainAssemblyReference.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/../../Program Files/dotnet/sdk/7.0.400-preview.23225.8/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_7_default.editorconfig" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application/Abstractions/ICommand.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application/Abstractions/ICommandHandler.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application/Abstractions/IQuery.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application/Abstractions/IQueryHandler.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application/Abstractions/IUnitOfWork.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application/Common/Mappings/ManualMappings/ProcedureMapping.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application/Common/Mappings/ManualMappings/RegistrationMapping.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application/Common/Mappings/ManualMappings/CustomerMapping.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application/Common/Mappings/CustomerMappingProfile.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application/Common/Mappings/ProcedureMappingProfile.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application/Common/Mappings/RegistrationMappingProfile.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application/Customers/Commands/CreateCustomerCommand/CreateCustomerCommand.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application/Customers/Commands/CreateCustomerCommand/CreateCustomerCommandHandler.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application/Customers/Commands/CreateCustomerCommand/CreateCustomerCommandValidator.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application/Customers/Queries/GetCustomerById/GetCustomerByIdQuery.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application/Customers/Queries/GetCustomerById/GetCustomerByIdQueryHandler.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application/Customers/Queries/GetAllCustomers/GetAllCustomersQuery.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application/Customers/Queries/GetAllCustomers/GetAllCustomersQueryHandler.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application/DTO/CustomerDto.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application/DTO/ProcedureDto.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application/DTO/RegistrationDto.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application/Events/ProcedureAddedDomainEventHandler.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application/Events/RegistrationAddedDomainEventHandler.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application/Exceptions/RegistrationAlreadyExists.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application/Exceptions/RegistrationNotFoundException.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application/Exceptions/YumeNailBarDomainException.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application/obj/Debug/net7.0/YumeNailBar.Application.GlobalUsings.g.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application/obj/Debug/net7.0/YumeNailBar.Application.AssemblyInfo.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application/obj/Debug/net7.0/YumeNailBar.Application.GeneratedMSBuildEditorConfig.editorconfig" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application/ApplicationAssemblyReference.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application/DependencyInjection.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/../../Program Files/dotnet/sdk/7.0.400-preview.23225.8/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_7_default.editorconfig" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Infrastructure/Persistence/EF/Configuration/CustomerConfiguration.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Infrastructure/Persistence/EF/Configuration/DbNames.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Infrastructure/Persistence/EF/Configuration/ProcedureConfiguration.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Infrastructure/Persistence/EF/Configuration/RegistrationConfiguration.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Infrastructure/Persistence/EF/Contexts/ApplicationContext/CustomerDbContext.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Infrastructure/Persistence/EF/Contexts/ApplicationContext/ICustomerDbContext.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Infrastructure/Persistence/EF/Options/MsSqlServerOptions.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Infrastructure/Persistence/EF/Repositories/CustomerRepository.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Infrastructure/Persistence/Extensions/MsSqlConfigurationExtension.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Infrastructure/Persistence/Extensions/MsSqlServiceExtension.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Infrastructure/obj/Debug/net7.0/YumeNailBar.Infrastructure.GlobalUsings.g.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Infrastructure/obj/Debug/net7.0/YumeNailBar.Infrastructure.AssemblyInfo.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Infrastructure/obj/Debug/net7.0/YumeNailBar.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Infrastructure/Migrations/20230530110126_Initial.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Infrastructure/Migrations/CustomerDbContextModelSnapshot.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Infrastructure/Migrations/20230530110126_Initial.Designer.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Infrastructure/DependencyInjection.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/../../Program Files/dotnet/sdk/7.0.400-preview.23225.8/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_7_default.editorconfig" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.WebApi/Controllers/ClientController.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.WebApi/Properties/launchSettings.json" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.WebApi/obj/Debug/net7.0/YumeNailBar.WebApi.GlobalUsings.g.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.WebApi/obj/Debug/net7.0/YumeNailBar.WebApi.AssemblyInfo.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.WebApi/obj/Debug/net7.0/YumeNailBar.WebApi.GeneratedMSBuildEditorConfig.editorconfig" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.WebApi/Program.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.WebApi/appsettings.Development.json" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.WebApi/appsettings.json" web="/" />
+            <mapping local="$PROJECT_DIR$/../../Program Files/dotnet/sdk/7.0.400-preview.23225.8/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_7_default.editorconfig" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.WebApi/Dockerfile" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.WebApi/fly.toml" web="/" />
+            <mapping local="$PROJECT_DIR$/.dockerignore" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Console/obj/Debug/net7.0/YumeNailBar.Console.GlobalUsings.g.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Console/obj/Debug/net7.0/YumeNailBar.Console.AssemblyInfo.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Console/obj/Debug/net7.0/YumeNailBar.Console.GeneratedMSBuildEditorConfig.editorconfig" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Console/Program.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/../../Program Files/dotnet/sdk/7.0.400-preview.23225.8/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_7_default.editorconfig" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Console/Dockerfile" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Console/HttpSettings.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/.dockerignore" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/Pages/Customer.razor" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/Pages/Customer.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/Pages/Customer.razor" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/Shared/MainLayout.razor" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/Shared/MainLayout.razor" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/Shared/MainLayout.razor.css" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/wwwroot/css/bootstrap/bootstrap.min.css" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/wwwroot/css/bootstrap/bootstrap.min.css.map" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/wwwroot/css/open-iconic/font/css/open-iconic-bootstrap.min.css" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/wwwroot/css/open-iconic/font/fonts/open-iconic.eot" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/wwwroot/css/open-iconic/font/fonts/open-iconic.otf" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/wwwroot/css/open-iconic/font/fonts/open-iconic.svg" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/wwwroot/css/open-iconic/font/fonts/open-iconic.ttf" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/wwwroot/css/open-iconic/font/fonts/open-iconic.woff" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/wwwroot/css/open-iconic/FONT-LICENSE" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/wwwroot/css/open-iconic/ICON-LICENSE" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/wwwroot/css/open-iconic/README.md" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/wwwroot/css/app.css" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/wwwroot/sample-data/weather.json" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/wwwroot/favicon.png" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/wwwroot/icon-192.png" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/wwwroot/index.html" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/wwwroot/vivid-blurred-colorful-wallpaper-background.jpg" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/wwwroot/.gitignore" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/Properties/launchSettings.json" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/obj/Debug/net7.0/YumeNailBar.Blazor.GlobalUsings.g.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/obj/Debug/net7.0/YumeNailBar.Blazor.AssemblyInfo.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/obj/Debug/net7.0/YumeNailBar.Blazor.GeneratedMSBuildEditorConfig.editorconfig" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/Services/ICustomerService.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/Services/CustomerService.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/Models/CustomerViewModel.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/publish/wwwroot/vercel.json" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/Program.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/App.razor" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/App.razor" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/_Imports.razor" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/_Imports.razor" web="/" />
+            <mapping local="$PROJECT_DIR$/../../Program Files/dotnet/sdk/7.0.400-preview.23225.8/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_7_default.editorconfig" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/.gitignore" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/Dockerfile" web="/" />
+            <mapping local="$PROJECT_DIR$/.dockerignore" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.net.test.sdk/17.3.2/build/netcoreapp2.1/Microsoft.NET.Test.Sdk.Program.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain.Tests/obj/Debug/net7.0/YumeNailBar.Domain.Tests.GlobalUsings.g.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain.Tests/obj/Debug/net7.0/YumeNailBar.Domain.Tests.AssemblyInfo.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain.Tests/obj/Debug/net7.0/YumeNailBar.Domain.Tests.GeneratedMSBuildEditorConfig.editorconfig" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.5/build/netcoreapp3.1/xunit.runner.visualstudio.dotnetcore.testadapter.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.5/build/netcoreapp3.1/xunit.runner.reporters.netcoreapp10.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.5/build/netcoreapp3.1/xunit.runner.utility.netcoreapp10.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.testplatform.testhost/17.3.2/build/netcoreapp2.1/x64/testhost.exe" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.testplatform.testhost/17.3.2/build/netcoreapp2.1/x64/testhost.dll" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain.Tests/UnitTest1.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Domain.Tests/Usings.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/../../Program Files/dotnet/sdk/7.0.400-preview.23225.8/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_7_default.editorconfig" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.net.test.sdk/17.3.2/build/netcoreapp2.1/Microsoft.NET.Test.Sdk.Program.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application.Tests/obj/Debug/net7.0/YumeNailBar.Application.Tests.GlobalUsings.g.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application.Tests/obj/Debug/net7.0/YumeNailBar.Application.Tests.AssemblyInfo.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application.Tests/obj/Debug/net7.0/YumeNailBar.Application.Tests.GeneratedMSBuildEditorConfig.editorconfig" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.5/build/netcoreapp3.1/xunit.runner.visualstudio.dotnetcore.testadapter.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.5/build/netcoreapp3.1/xunit.runner.reporters.netcoreapp10.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.5/build/netcoreapp3.1/xunit.runner.utility.netcoreapp10.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.testplatform.testhost/17.3.2/build/netcoreapp2.1/x64/testhost.exe" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.testplatform.testhost/17.3.2/build/netcoreapp2.1/x64/testhost.dll" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application.Tests/UnitTest1.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Application.Tests/Usings.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/../../Program Files/dotnet/sdk/7.0.400-preview.23225.8/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_7_default.editorconfig" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.net.test.sdk/17.3.2/build/netcoreapp2.1/Microsoft.NET.Test.Sdk.Program.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Infrastructure.Tests/obj/Debug/net7.0/YumeNailBar.Infrastructure.Tests.GlobalUsings.g.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Infrastructure.Tests/obj/Debug/net7.0/YumeNailBar.Infrastructure.Tests.AssemblyInfo.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Infrastructure.Tests/obj/Debug/net7.0/YumeNailBar.Infrastructure.Tests.GeneratedMSBuildEditorConfig.editorconfig" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.5/build/netcoreapp3.1/xunit.runner.visualstudio.dotnetcore.testadapter.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.5/build/netcoreapp3.1/xunit.runner.reporters.netcoreapp10.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.5/build/netcoreapp3.1/xunit.runner.utility.netcoreapp10.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.testplatform.testhost/17.3.2/build/netcoreapp2.1/x64/testhost.exe" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.testplatform.testhost/17.3.2/build/netcoreapp2.1/x64/testhost.dll" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Infrastructure.Tests/UnitTest1.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Infrastructure.Tests/Usings.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/../../Program Files/dotnet/sdk/7.0.400-preview.23225.8/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_7_default.editorconfig" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.net.test.sdk/17.3.2/build/netcoreapp2.1/Microsoft.NET.Test.Sdk.Program.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Presentation.Tests/obj/Debug/net7.0/YumeNailBar.Presentation.Tests.GlobalUsings.g.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Presentation.Tests/obj/Debug/net7.0/YumeNailBar.Presentation.Tests.AssemblyInfo.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Presentation.Tests/obj/Debug/net7.0/YumeNailBar.Presentation.Tests.GeneratedMSBuildEditorConfig.editorconfig" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.5/build/netcoreapp3.1/xunit.runner.visualstudio.dotnetcore.testadapter.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.5/build/netcoreapp3.1/xunit.runner.reporters.netcoreapp10.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/xunit.runner.visualstudio/2.4.5/build/netcoreapp3.1/xunit.runner.utility.netcoreapp10.dll" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.testplatform.testhost/17.3.2/build/netcoreapp2.1/x64/testhost.exe" web="/" />
+            <mapping local="$USER_HOME$/.nuget/packages/microsoft.testplatform.testhost/17.3.2/build/netcoreapp2.1/x64/testhost.dll" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Presentation.Tests/UnitTest1.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Presentation.Tests/Usings.cs" web="/" />
+            <mapping local="$PROJECT_DIR$/../../Program Files/dotnet/sdk/7.0.400-preview.23225.8/Sdks/Microsoft.NET.Sdk/analyzers/build/config/analysislevel_7_default.editorconfig" web="/" />
+            <mapping local="$PROJECT_DIR$/docker-compose.yml" web="/" />
+            <mapping local="$PROJECT_DIR$/docker-compose.yml" web="/" />
+            <mapping local="$PROJECT_DIR$/.dockerignore" web="/" />
+            <mapping local="$PROJECT_DIR$/YumeNailBar.Blazor/fly.toml" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
     </serverData>
   </component>
 </project>

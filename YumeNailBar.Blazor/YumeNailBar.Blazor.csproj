@@ -18,7 +18,9 @@
         <Link>.dockerignore</Link>
       </Content>
     </ItemGroup>
-
+    <ItemGroup>
+        <None Include="publish/wwwroot/vercel.json"  CopyToPublishDirectory="PreserveNewest" />
+    </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\YumeNailBar.Application\YumeNailBar.Application.csproj" />
       <ProjectReference Include="..\YumeNailBar.Infrastructure\YumeNailBar.Infrastructure.csproj" />

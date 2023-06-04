@@ -14,7 +14,7 @@ public class ProcedureConfiguration : IEntityTypeConfiguration<Procedure>
         builder.HasKey(x => x.Id);
         builder.Property(x => x.Id)
             .IsRequired()
-            .HasConversion(x => x.Value, 
+            .HasConversion(x => x.Value,
                 value => new ProcedureId(value));
         builder.Property(x => x.ProcedureKind).IsRequired()
             .HasConversion(

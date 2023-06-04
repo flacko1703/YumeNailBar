@@ -17,7 +17,7 @@ public class CustomerConfiguration : IEntityTypeConfiguration<Customer>
         builder.Property(c => c.Id)
             .IsRequired()
             .HasConversion(c => c.Value,
-                value => new(value));
+                value => new CustomerId(value));
 
         
         builder.HasMany(x => x.Registrations)

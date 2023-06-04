@@ -11,10 +11,10 @@ public static class MsSqlServiceExtension
 {
     public static IServiceCollection AddPersistence(this IServiceCollection services, IConfiguration configuration)
     {
-        var options = configuration.GetOptions<MsSqlServerOptions>("MsSqlServer");
+        var options = configuration.GetOptions<PostgresOptions>("Postgres");
         
         services.AddDbContext<CustomerDbContext>(ctx 
-            => ctx.UseSqlServer(options.ConnectionString));
+            => ctx.UseNpgsql(options.ConnectionString));
 
         services.AddScoped<ICustomerDbContext>(s 
             => s.GetRequiredService<CustomerDbContext>());
@@ -22,6 +22,7 @@ public static class MsSqlServiceExtension
         services.AddScoped<IUnitOfWork>(s 
             => s.GetRequiredService<CustomerDbContext>());
         
+       
         return services;
     }
 }
